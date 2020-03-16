@@ -1,9 +1,4 @@
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/model/InventoryList.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/model/SystemData.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/client/UnknownUriExceptionMapper.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/client/SystemClient.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/WebResource.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/system/SystemResource.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/MainApplication.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/system/SystemApplication.java
-/Users/dilloncarns/Projects/appmod-sampleapp/src/main/java/io/openliberty/guides/inventory/client/UnknownUriException.java
+/Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemResource.java
+/Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/MainApplication.java
+/Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/WebResource.java
+/Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemApplication.java

@@ -7,7 +7,7 @@ IBM-API-Package: com.ibm.websphere.application; type=ibm-api,
  com.ibm.websphere.security.auth; type=ibm-api,
  com.ibm.websphere.security.cred; type=ibm-api,
  com.ibm.wsspi.security.registry; type=ibm-api
-IBM-AppliesTo: io.openliberty;productVersion="20.0.0.2"
+IBM-AppliesTo: io.openliberty;productVersion="20.0.0.3"
 IBM-Feature-Version: 2
 IBM-InstallTo: core
 IBM-License-Agreement: wlp/lafiles/LA

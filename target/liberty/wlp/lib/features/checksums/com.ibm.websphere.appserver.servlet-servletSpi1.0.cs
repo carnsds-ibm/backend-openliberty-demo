@@ -1,4 +1,4 @@
-#Tue Feb 25 13:16:15 EST 2020
-lib/features/com.ibm.websphere.appserver.servlet-servletSpi1.0.mf=9cd46892524840519319a6af00b2fc20
-dev/spi/ibm/com.ibm.websphere.appserver.spi.servlet_2.4.37.jar=84223a98a9486a83dd85abb07fb60705
-dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.servlet_2.4-javadoc.zip=b38278afda4e9f7d02f5af36ff272119
+#Mon Mar 16 14:22:05 EDT 2020
+lib/features/com.ibm.websphere.appserver.servlet-servletSpi1.0.mf=d2a745f2b380f6eccd8cfcab410ade85
+dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.servlet_2.5-javadoc.zip=2fd12f886c20350bf41d4a0389013b24
+dev/spi/ibm/com.ibm.websphere.appserver.spi.servlet_2.5.38.jar=962462dfbf7f0d5ebd70cc02f1c8ec14

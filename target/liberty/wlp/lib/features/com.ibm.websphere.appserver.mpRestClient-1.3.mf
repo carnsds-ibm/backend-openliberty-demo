@@ -6,7 +6,7 @@ IBM-API-Package: org.eclipse.microprofile.rest.client; type=stable,
  org.eclipse.microprofile.rest.client.spi; type=stable
 IBM-App-ForceRestart: install,
  uninstall
-IBM-AppliesTo: io.openliberty;productVersion="20.0.0.2"
+IBM-AppliesTo: io.openliberty;productVersion="20.0.0.3"
 IBM-Feature-Version: 2
 IBM-InstallTo: core
 IBM-License-Agreement: wlp/lafiles/LA

@@ -1,4 +1,4 @@
-Open Liberty Version 20.0.0.2 - (20.0.0.2-202002041809)
+Open Liberty Version 20.0.0.3 - (20.0.0.3-202003051450)
 
 
 I. CONTROLLING OPEN LIBERTY

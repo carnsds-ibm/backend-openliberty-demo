@@ -1,9 +1,9 @@
-#Tue Feb 25 13:16:13 EST 2020
-lib/com.ibm.ws.javaee.dd.ejb_1.1.37.jar=1e45b60328b39b5b83ee4c98af75e333
-lib/com.ibm.ws.javaee.dd_1.0.37.jar=58daff1fa83825d608362783843d4b6c
-lib/features/com.ibm.websphere.appserver.javaeedd-1.0.mf=fa94345f2d71c99297a5889706f6dc78
-dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.javaeedd_1.3-javadoc.zip=98baf811ce8f84afe45546e262931fd1
-lib/com.ibm.ws.javaee.dd.common_1.1.37.jar=7dd512de811c6846e6d0047375eebf55
-lib/com.ibm.ws.javaee.ddmodel_1.0.37.jar=7d8aa09890a22c9cf57d3c98656c7de5
-dev/spi/ibm/com.ibm.websphere.appserver.spi.javaeedd_1.3.37.jar=039bef9a5126aac8e5ef56ae966966f9
-lib/com.ibm.ws.javaee.version_1.0.37.jar=127b0253911aef5d7347fa86361789f3
+#Mon Mar 16 14:22:03 EDT 2020
+lib/com.ibm.ws.javaee.version_1.0.38.jar=6d391d7ccd4ac4ec085c78e68bd13ece
+lib/com.ibm.ws.javaee.dd.ejb_1.1.38.jar=74aa03eb858144cae2fb528fae9fe50d
+lib/com.ibm.ws.javaee.dd_1.0.38.jar=dab88084bdc0e651cf7bcc478eca8dd1
+lib/features/com.ibm.websphere.appserver.javaeedd-1.0.mf=e7ba9ebb786df8a7b7797964f6802339
+dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.javaeedd_1.3-javadoc.zip=0dad1c7f0a1d394a1b3e270b097952a2
+lib/com.ibm.ws.javaee.dd.common_1.1.38.jar=400fe071155f60bccb8c8ee8e0d98315
+lib/com.ibm.ws.javaee.ddmodel_1.0.38.jar=c1f9c4380c659963fe31dbd66e41d6db
+dev/spi/ibm/com.ibm.websphere.appserver.spi.javaeedd_1.3.38.jar=7cefce1b0b81804183eaa2c616e14c07

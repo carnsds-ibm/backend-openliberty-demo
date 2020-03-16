@@ -1,3 +1,3 @@
-#Tue Feb 25 13:16:16 EST 2020
-dev/api/stable/com.ibm.websphere.org.eclipse.microprofile.rest.client.1.3_1.0.37.jar=c3efc730b79d433673f0a214fd783c2c
-lib/features/com.ibm.websphere.appserver.org.eclipse.microprofile.rest.client-1.3.mf=ad9728df544d3a521d7fabd8d9fbec66
+#Mon Mar 16 14:22:07 EDT 2020
+dev/api/stable/com.ibm.websphere.org.eclipse.microprofile.rest.client.1.3_1.0.38.jar=2e5a321b860860094896f3ec30e4a206
+lib/features/com.ibm.websphere.appserver.org.eclipse.microprofile.rest.client-1.3.mf=ef2533b8e8cbc161033789a69c1a9dc8

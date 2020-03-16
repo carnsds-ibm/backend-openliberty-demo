@@ -1,8 +1,8 @@
-#Tue Feb 25 13:16:15 EST 2020
-dev/api/spec/com.ibm.websphere.org.osgi.service.http_1.0.37.jar=174d549227a516cc76ed7428824343ef
-lib/features/com.ibm.websphere.appserver.internal.cxf.common-3.2.mf=23d0f5698819178572bb66b0e0616b8c
-lib/com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.37.jar=b5c83f9cb96f6d85477fa18892a2f053
-lib/com.ibm.ws.org.apache.xml.resolver.1.2_1.0.37.jar=974492c9ff3b8ad25be013f7263f32a9
-lib/com.ibm.ws.org.apache.neethi.3.0.2_1.0.37.jar=ca7e7f41f2ddab33370fac168ad5d17a
-lib/com.ibm.ws.org.apache.ws.xmlschema.core.2.0.3_1.0.37.jar=8b1472e88842470fe90aa84706cdb6df
-lib/com.ibm.ws.org.apache.cxf.cxf.rt.transports.http.3.2_1.0.37.jar=c92f9d5a2fd247f1a666de3372a66a5e
+#Mon Mar 16 14:22:06 EDT 2020
+lib/com.ibm.ws.org.apache.neethi.3.0.2_1.0.38.jar=c9fa0407a0b662c532bd1d9f71e54667
+lib/features/com.ibm.websphere.appserver.internal.cxf.common-3.2.mf=22fadb64f5f7deb05c572686ab86f979
+dev/api/spec/com.ibm.websphere.org.osgi.service.http_1.0.38.jar=69b790780aba019b1a0264a535eb8d97
+lib/com.ibm.ws.org.apache.xml.resolver.1.2_1.0.38.jar=3233a6ec947c502ac4d16f550ef414d5
+lib/com.ibm.ws.org.apache.cxf.cxf.rt.transports.http.3.2_1.0.38.jar=363284dcea7c3e71b5aaf651ad83625e
+lib/com.ibm.ws.org.apache.cxf.cxf.core.3.2_1.0.38.jar=33c15d7aab7d4f2104960a84a84447ea
+lib/com.ibm.ws.org.apache.ws.xmlschema.core.2.0.3_1.0.38.jar=2d0ab87eca50d46d0d89c4f151ce9b61

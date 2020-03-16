@@ -1,12 +1,12 @@
 Created-By: 11.0.2 (Eclipse OpenJ9)
 IBM-API-Package: com.ibm.ws.microprofile.rest.client.cdi; type="internal"
-IBM-AppliesTo: io.openliberty;productVersion="20.0.0.2"
+IBM-AppliesTo: io.openliberty;productVersion="20.0.0.3"
 IBM-Feature-Version: 2
 IBM-Install-Policy: when-satisfied
 IBM-InstallTo: core
 IBM-License-Agreement: wlp/lafiles/LA
 IBM-ProductID: io.openliberty
-IBM-Provision-Capability: osgi.identity; filter:="(&(type=osgi.subsystem.feature)(|(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.0)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.1)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.2)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.3)))",
+IBM-Provision-Capability: osgi.identity; filter:="(&(type=osgi.subsystem.feature)(|(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.0)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.1)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.2)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.3)(osgi.identity=com.ibm.websphere.appserver.mpRestClient-1.4)))",
  osgi.identity; filter:="(&(type=osgi.subsystem.feature)(|(osgi.identity=com.ibm.websphere.appserver.cdi-1.2)(osgi.identity=com.ibm.websphere.appserver.cdi-2.0)))"
 Subsystem-Content: com.ibm.ws.microprofile.rest.client.cdi; version="[1.0.0,1.0.200)"
 Subsystem-Description: %description

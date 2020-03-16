@@ -1,3 +1,3 @@
-#Tue Feb 25 13:16:14 EST 2020
-lib/features/com.ibm.websphere.appserver.javaeeCompatible-8.0.mf=ba22f3c5e49e77df0fcc13ef63679826
-lib/com.ibm.ws.javaee.version_1.0.37.jar=127b0253911aef5d7347fa86361789f3
+#Mon Mar 16 14:22:05 EDT 2020
+lib/com.ibm.ws.javaee.version_1.0.38.jar=6d391d7ccd4ac4ec085c78e68bd13ece
+lib/features/com.ibm.websphere.appserver.javaeeCompatible-8.0.mf=751674f9447df057ca921a6688c3038f

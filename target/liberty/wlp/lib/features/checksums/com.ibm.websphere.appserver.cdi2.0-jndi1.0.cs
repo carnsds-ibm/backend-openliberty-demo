@@ -1,3 +1,3 @@
-#Tue Feb 25 13:16:17 EST 2020
-lib/features/com.ibm.websphere.appserver.cdi2.0-jndi1.0.mf=95c1e33e701b76bc1ffda2e3fef10723
-lib/com.ibm.ws.cdi.jndi_1.0.37.jar=5037dc779c80c1fc5959c8c163507e92
+#Mon Mar 16 14:22:08 EDT 2020
+lib/features/com.ibm.websphere.appserver.cdi2.0-jndi1.0.mf=10bf90fda2bdb511898e1c33a9a53d73
+lib/com.ibm.ws.cdi.jndi_1.0.38.jar=6d34970c826086036c39a5f7da8dd3ba

@@ -1,8 +1,0 @@
-
- Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
-------+------+---------------------------+---------------------------+---------------------------
-     0      1    3/5/20, 13:44:10:733 EST    3/5/20, 13:44:10:733 EST java.lang.NoClassDefFoundError com.ibm.ws.injectionengine.InjectionProcessorManager.getAllDeclaredFields 249
-                                                                            - /Users/dilloncarns/Projects/appmod-sampleapp/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.05_13.44.10.0.log
-     1      1    3/5/20, 13:44:10:762 EST    3/5/20, 13:44:10:762 EST org.jboss.weld.resources.spi.ResourceLoadingException com.ibm.ws.cdi.impl.weld.BeanDeploymentArchiveImpl 894
-                                                                            - /Users/dilloncarns/Projects/appmod-sampleapp/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.05_13.44.10.1.log
-------+------+---------------------------+---------------------------+---------------------------

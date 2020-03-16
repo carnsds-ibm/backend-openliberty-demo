@@ -1,7 +1,7 @@
-#Tue Feb 25 13:16:15 EST 2020
-lib/features/com.ibm.websphere.appserver.javax.jaxrs-2.1.mf=d94314849c35712ae59c2652184bcfd2
-dev/api/spec/com.ibm.websphere.javaee.jaxb.2.2_1.0.37.jar=800ae667f118e7402c5c27ec9c614e51
-dev/api/ibm/com.ibm.websphere.appserver.api.jaxrs20_1.0.37.jar=c9b3e1192a3e31615ebb4bd58b57724f
-dev/api/spec/com.ibm.websphere.javaee.jaxrs.2.1_1.0.37.jar=3377fdb4932a4fad50170a5803d5289e
-dev/api/spec/com.ibm.websphere.javaee.activation.1.1_1.0.37.jar=47fa8d4428ac4343f8196036c2ce3fd5
-dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.jaxrs20_1.0-javadoc.zip=1a3f356c6c585c4cae873ca1c91c4e54
+#Mon Mar 16 14:22:06 EDT 2020
+lib/features/com.ibm.websphere.appserver.javax.jaxrs-2.1.mf=72a66d304b8169791c96e37218e1b69b
+dev/api/spec/com.ibm.websphere.javaee.jaxrs.2.1_1.0.38.jar=d18590521f2b021d66e7d0a83df2c63b
+dev/api/spec/com.ibm.websphere.javaee.activation.1.1_1.0.38.jar=e8ea19b733a046ddef2374345e8ae269
+dev/api/ibm/com.ibm.websphere.appserver.api.jaxrs20_1.0.38.jar=689d2288d90731720904f9f31bb70d23
+dev/api/spec/com.ibm.websphere.javaee.jaxb.2.2_1.0.38.jar=4c43db6567bc48c8ae2797bd21ceed13
+dev/api/ibm/javadoc/com.ibm.websphere.appserver.api.jaxrs20_1.0-javadoc.zip=a235ed90d538b4363c080dddff72bc38

@@ -1,14 +1,14 @@
-#Tue Feb 25 13:16:13 EST 2020
-lib/com.ibm.ws.classloading.configuration_1.0.37.jar=5c140129a9ceeb99482cd94dd293f8af
-lib/com.ibm.ws.artifact.loose_1.0.37.jar=65edbb1286537a4738a3866ac6f1d0cf
-lib/com.ibm.ws.artifact.url_1.0.37.jar=b1fdfb0411fab93ea746879ef1427b9f
-lib/com.ibm.ws.adaptable.module_1.0.37.jar=d4588268c5e22f7848a09d00da463cd1
-dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.artifact_1.2-javadoc.zip=2cac4f3f1724771be4c9ba068709b7c3
-lib/features/com.ibm.websphere.appserver.artifact-1.0.mf=61e545a42eca9247c92b8a38b908cae6
-dev/spi/ibm/com.ibm.websphere.appserver.spi.artifact_1.2.37.jar=b8d9fc433a2bb05f085bd22d4ba7ca66
-lib/com.ibm.ws.artifact.bundle_1.0.37.jar=ef39a3f2184006e9fb19d63620c6c2ba
-lib/com.ibm.ws.artifact.file_1.0.37.jar=f576578a2f93bccd5b633d0dc6a40a4f
-lib/com.ibm.ws.artifact.overlay_1.0.37.jar=efd14392f00bbd6fa781d3fbb0393812
-lib/com.ibm.ws.artifact.zip_1.0.37.jar=fa12f106807c388ae1bde8be5bff7791
-lib/com.ibm.ws.artifact_1.0.37.jar=5450649a811fa661cc35af5876156b81
-lib/com.ibm.ws.artifact.equinox.module_1.0.37.jar=6ad67c2eeacbaf30152767ae6cadba62
+#Mon Mar 16 14:22:03 EDT 2020
+lib/com.ibm.ws.artifact.file_1.0.38.jar=40accdfb025d9b9204465636a3595020
+lib/com.ibm.ws.artifact_1.0.38.jar=62a8ec7206fbdaa115cfc58e0086f167
+lib/com.ibm.ws.artifact.bundle_1.0.38.jar=e4aaffa962bc8f1b55123f94b68460af
+lib/com.ibm.ws.artifact.overlay_1.0.38.jar=3146388313e0f89a764777e5932964a2
+lib/com.ibm.ws.artifact.zip_1.0.38.jar=fec61a9660a1667eaef4a2db723053dd
+dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.artifact_1.2-javadoc.zip=e9ecf96a73f14fefd54945d5bcb2b41a
+lib/com.ibm.ws.artifact.equinox.module_1.0.38.jar=60008e755bfb70a1ab4e5790d0ae1821
+lib/features/com.ibm.websphere.appserver.artifact-1.0.mf=4132b9d9abff95da4e1cb1415fc13437
+lib/com.ibm.ws.artifact.loose_1.0.38.jar=9cd2818dcb1be51f4ee4cb97ee413b01
+lib/com.ibm.ws.artifact.url_1.0.38.jar=3e10538b026c58cf7bb47725dfa563ec
+lib/com.ibm.ws.classloading.configuration_1.0.38.jar=c2de2566e1fe194e7ea62f873c55ed3c
+lib/com.ibm.ws.adaptable.module_1.0.38.jar=5f799fcf4552b9df24c9cc99199f90ed
+dev/spi/ibm/com.ibm.websphere.appserver.spi.artifact_1.2.38.jar=48d4bdd0dfa28329b97a1d275ef9b416
