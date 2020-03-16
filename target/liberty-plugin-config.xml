@@ -24,4 +24,7 @@
     <installAppsConfigDropins>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/install_apps_configuration_1491924271.xml</installAppsConfigDropins>
     <projectType>war</projectType>
     <projectCompileDependency>org.apache.commons:commons-lang3:3.9</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:mongodb-driver-sync:3.12.2</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:bson:3.12.2</projectCompileDependency>
+    <projectCompileDependency>org.mongodb:mongodb-driver-core:3.12.2</projectCompileDependency>
 </liberty-plugin-config>
