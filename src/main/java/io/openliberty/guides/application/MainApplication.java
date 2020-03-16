@@ -3,7 +3,7 @@ package io.openliberty.guides.application;
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
 
-@ApplicationPath("app")
+@ApplicationPath("/")
 public class MainApplication extends Application {
 
 }
