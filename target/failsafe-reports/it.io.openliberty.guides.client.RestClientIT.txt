@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: it.io.openliberty.guides.client.RestClientIT
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 30.108 s <<< FAILURE! - in it.io.openliberty.guides.client.RestClientIT
+testSuite  Time elapsed: 30.107 s  <<< ERROR!
+javax.ws.rs.client.ResponseProcessingException: No message body reader has been found for class javax.json.JsonObject, ContentType: text/html;charset=ISO-8859-1
+	at it.io.openliberty.guides.client.RestClientIT.fetchProperties(RestClientIT.java:80)
+	at it.io.openliberty.guides.client.RestClientIT.testRestClientBuilder(RestClientIT.java:68)
+	at it.io.openliberty.guides.client.RestClientIT.testSuite(RestClientIT.java:44)
+

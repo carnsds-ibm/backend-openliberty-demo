@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archive>
+    <dir sourceOnDisk="/Users/dilloncarns/Projects/appmod-sampleapp/src/main/webapp" targetInArchive="/"/>
+    <dir sourceOnDisk="/Users/dilloncarns/Projects/appmod-sampleapp/target/classes" targetInArchive="/WEB-INF/classes"/>
+    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar" targetInArchive="/WEB-INF/lib/commons-lang3-3.9.jar"/>
+    <file sourceOnDisk="/Users/dilloncarns/Projects/appmod-sampleapp/target/tmp/META-INF/MANIFEST.MF" targetInArchive="/META-INF/MANIFEST.MF"/>
+</archive>
