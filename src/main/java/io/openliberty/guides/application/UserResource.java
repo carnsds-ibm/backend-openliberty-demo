@@ -1,5 +1,6 @@
 package io.openliberty.guides.application;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import javax.enterprise.context.RequestScoped;
@@ -8,7 +9,6 @@ import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
-import javax.ws.rs.client.ClientRequestContext;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
@@ -23,15 +23,30 @@ import io.openliberty.guides.application.util.DBManager;
 @Path("")
 public class UserResource {
 
+    @GET
+    @Path("/AllUsers")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getAllUsers() {
+        System.out.println("Retrieving All User Data ... " + UserResource.class.getSimpleName() + " [30]");
+        Document userDoc = new Document();
+        ArrayList<String> names = new ArrayList<>();
+
+        for (Document doc:DBManager.DATABASE.getCollection(DBManager.USERS).find()) {
+            names.add(doc.getString(DBManager.USER));
+        }
+        userDoc.append(DBManager.USERS, names);
+        System.out.println("Finished retrieving All User Data ... " + UserResource.class.getSimpleName() + " [39]");
+        return Response.status(Response.Status.OK).entity(userDoc.toJson()).build();
+    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/User")
     public Response getUser(User user) {
-        System.out.println("Retrieving User Data ... " + UserResource.class.getSimpleName() + " [31]");
+        System.out.println("Retrieving User Data ... " + UserResource.class.getSimpleName() + " [47]");
         Document test = findUser(user.getUserName());
-
-        System.out.println("Finished retrieving User Data ... " + UserResource.class.getSimpleName() + " [34]");
+        System.out.println("Finished retrieving User Data ... " + UserResource.class.getSimpleName() + " [50]");
 
         return Response.status(Response.Status.OK).entity("{ \"user\": \"" + test.getString(DBManager.USER) + "\" , \"user2\": 2}").build();
     }
@@ -41,20 +56,20 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/CreateUser")
     public Response createUser(User user) {
-        System.out.println("Creating User Data ... for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [44]");
+        System.out.println("Creating User Data ... for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [58]");
         
         Document newUser = new Document(DBManager.USER, user.getUserName()).append(DBManager.PASSWORD, user.getPassword());
 
         if (!checkUsernameExists(user.getUserName())) {
             DBManager.DATABASE.getCollection(DBManager.USERS).insertOne(newUser);
         } else {
-            System.out.println("User Data already exists for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [51]");
+            System.out.println("User Data already exists for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [66]");
         }
         
         for (Document doc:DBManager.DATABASE.getCollection(DBManager.USERS).find()) {
             System.out.println(doc);
         }
-        System.out.println("Finished creating User Data ... " + UserResource.class.getSimpleName() + " [55]");
+        System.out.println("Finished creating User Data ... " + UserResource.class.getSimpleName() + " [72]");
         return Response.status(Response.Status.OK).entity(newUser.toString()).build();
     }
 
