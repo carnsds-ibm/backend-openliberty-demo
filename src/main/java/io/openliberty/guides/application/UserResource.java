@@ -1,19 +1,21 @@
 package io.openliberty.guides.application;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.mongodb.MongoClientSettings;
-import com.mongodb.MongoCredential;
-import com.mongodb.ServerAddress;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
+import com.mongodb.client.FindIterable;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+import io.openliberty.guides.application.util.DBManager;
 
 @RequestScoped
 @Path("")
@@ -23,27 +25,56 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/User")
     public Response getResource() {
-        // String user = "admin"; // the user name
-        // String database = "admin"; // the name of the database in which the user is defined
-        // char[] password = "admin".toCharArray(); // the password as a character array
-
-        // MongoCredential credential = MongoCredential.createCredential(user, database, password);
-
-        // MongoClientSettings settings = MongoClientSettings.builder()
-        //     .credential(credential)
-        //     .applyToSslSettings(builder -> builder.enabled(true))
-        //     .applyToClusterSettings(builder -> 
-        //         builder.hosts(Arrays.asList(new ServerAddress("localhost", 8081))))
-        //     .build();
-        
-        // MongoClient mongoClient = MongoClients.create(settings);
-
-        MongoClient mongoClient = MongoClients.create("mongodb://localhost:8081");
-
-        String test = mongoClient.listDatabases().first().toString();
+        System.out.println("Retrieving User Data ... " + UserResource.class.getSimpleName() + " [21]");
+        String test = DBManager.DATABASE.getCollection(DBManager.USERS).find(Filters.eq(DBManager.USER, "Dennis")).first().toString();
         System.out.println(test);
+        System.out.println(checkUsernameExists("Dennis"));
+        System.out.println(validateUser("Dennis", "password"));
+        System.out.println("Finished retrieving User Data ... " + UserResource.class.getSimpleName() + " [23]");
 
-        return Response.status(Response.Status.OK).entity("{ \"user\": 1, \"user2\": 2}").build();
+        return Response.status(Response.Status.OK).entity("{ \"user\": \"" + test + "\" , \"user2\": 2}").build();
+    }
+
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/CreateUser")
+    public Response createUser() {
+        Document newUser = new Document(DBManager.USER, "Dennis").append(DBManager.PASSWORD, "password");
+        DBManager.DATABASE.getCollection(DBManager.USERS).insertOne(newUser);
+        for (Document doc:DBManager.DATABASE.getCollection(DBManager.USERS).find()) {
+            System.out.println(doc);
+        }
+
+        return Response.status(Response.Status.OK).entity(newUser.toString()).build();
+    }
+
+    private boolean checkUsernameExists(String userName) {
+        Iterator<Document> test = DBManager.DATABASE.getCollection(DBManager.USERS).find(Filters.eq(DBManager.USER, userName)).iterator();
+        boolean exists = false;
+
+        while (test.hasNext()) {
+            Document result = test.next();
+            String name = result.getString(DBManager.USER);
+            exists = name.equals(userName);
+        }
+
+        return exists;
+    } 
+
+    private boolean validateUser(String userName, String password) {
+        Iterator<Document> test = DBManager.DATABASE.getCollection(DBManager.USERS).find(Filters.eq(DBManager.USER, userName)).iterator();
+
+        while (test.hasNext()) {
+            Document result = test.next();
+            String name = result.getString(DBManager.USER);
+            String temppassword = result.getString(DBManager.PASSWORD);
+
+            if (name.equals(userName) && temppassword.equals(password)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
 }
