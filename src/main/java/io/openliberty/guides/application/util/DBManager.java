@@ -13,6 +13,8 @@ public class DBManager {
     public static final String DATABASENAME = "admin";
     public static final String ARTICLES = "articles";
     public static final String USERS = "users";
+    public static final String USERNOTFOUND = "user not found";
+    public static final String USERALREADYEXISTS = "user already exists";
 
     // Database 
     public static final MongoClient mongoClient = MongoClients.create("mongodb://localhost:8081");
