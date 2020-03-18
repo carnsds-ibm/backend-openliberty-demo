@@ -18,6 +18,7 @@ public class DBManager {
     public static final String USERS = "users";
     public static final String USERNOTFOUND = "user not found";
     public static final String USERALREADYEXISTS = "user already exists";
+    public static final String INVALID = "credentials invalid";
     
     private static final String DB_HOST = System.getenv("DB_HOST");
     private static final int DB_PORT = Integer.parseInt(System.getenv("DB_PORT"));
@@ -39,9 +40,13 @@ public class DBManager {
         }
     }
 
-    public static void createUser(String userName, String password) {
-        final BasicDBObject command = new BasicDBObject("createUser", userName).append("pwd", password).append("roles",
-                            Collections.singletonList(new BasicDBObject("role", "readWrite").append("db", DBManager.DATABASENAME)));
-        DBManager.DATABASE.runCommand(command);
+    public static int createUser(String userName, String password) {
+        try {
+            final BasicDBObject command = new BasicDBObject("createUser", userName).append("pwd", password).append("roles",
+                Collections.singletonList(new BasicDBObject("role", "readWrite").append("db", DBManager.DATABASENAME)));
+            return DATABASE.runCommand(command).getDouble("ok").intValue();
+        } catch (Exception e) {
+            return 2;
+        }
     }
 }
