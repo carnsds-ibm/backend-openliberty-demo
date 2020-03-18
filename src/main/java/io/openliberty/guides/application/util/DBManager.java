@@ -1,8 +1,12 @@
 package io.openliberty.guides.application.util;
 
+import java.util.Arrays;
 import java.util.Collections;
 
 import com.mongodb.BasicDBObject;
+import com.mongodb.MongoClientSettings;
+import com.mongodb.MongoCredential;
+import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -48,5 +52,20 @@ public class DBManager {
         } catch (Exception e) {
             return 2;
         }
+    }
+
+    public static int loginUser(String userName, String password) {
+        MongoCredential credential = MongoCredential.createScramSha1Credential(userName, DBManager.DATABASENAME, password.toCharArray());
+
+        MongoClient mongoClient = MongoClients.create(
+        MongoClientSettings.builder()
+                .applyToClusterSettings(builder ->
+                        builder.hosts(Arrays.asList(new ServerAddress(DBManager.DB_HOST, DBManager.DB_PORT))))
+                .credential(credential)
+                .build());
+
+        if (mongoClient == null) {
+            return 2;
+        } return 1;
     }
 }

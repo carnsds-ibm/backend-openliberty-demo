@@ -28,8 +28,7 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsers() {
         System.out.println("Retrieving All User Data ... " + UserResource.class.getSimpleName() + " [30]");
-        System.out.println(DBManager.MONGO_ADMIN);
-        System.out.println(DBManager.DATABASE);
+        System.out.println(DBManager.loginUser("Dennis", "password"));
         Document userDoc = new Document();
         ArrayList<String> names = new ArrayList<>();
 
