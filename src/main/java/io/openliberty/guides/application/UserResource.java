@@ -18,6 +18,7 @@ import org.bson.Document;
 
 import io.openliberty.guides.application.models.User;
 import io.openliberty.guides.application.util.DBManager;
+import io.openliberty.guides.application.util.HelpTools;
 
 @RequestScoped
 @Path("")
@@ -29,6 +30,7 @@ public class UserResource {
     public Response getAllUsers() {
         System.out.println("Retrieving All User Data ... " + UserResource.class.getSimpleName() + " [30]");
         System.out.println(DBManager.loginUser("Dennis", "password"));
+        System.out.println(HelpTools.hash("DennisMila"));
         Document userDoc = new Document();
         ArrayList<String> names = new ArrayList<>();
 
