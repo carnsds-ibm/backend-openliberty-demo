@@ -1,10 +1,8 @@
 package io.openliberty.guides.application.util;
 
-import java.util.Arrays;
+import java.util.Collections;
 
-import com.mongodb.MongoClientSettings;
-import com.mongodb.MongoCredential;
-import com.mongodb.ServerAddress;
+import com.mongodb.BasicDBObject;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
@@ -23,9 +21,11 @@ public class DBManager {
     
     private static final String DB_HOST = System.getenv("DB_HOST");
     private static final int DB_PORT = Integer.parseInt(System.getenv("DB_PORT"));
+    private static final String DB_ADMINUSER = System.getenv("DB_ADMINUSER");
+    private static final String DB_ADMINPWD = System.getenv("DB_ADMINPWD");
 
     // Database 
-    public static final MongoClient MONGO_ADMIN = MongoClients.create("mongodb://" + DBManager.DB_HOST + ":" + DBManager.DB_PORT);
+    public static final MongoClient MONGO_ADMIN = MongoClients.create("mongodb://" + DBManager.DB_ADMINUSER + ":" + DBManager.DB_ADMINPWD + "@" + DBManager.DB_HOST + ":" + DBManager.DB_PORT + "/?authSource=admin&authMechanism=SCRAM-SHA-1");
     public static final MongoDatabase DATABASE = DBManager.MONGO_ADMIN.getDatabase(DBManager.DATABASENAME);
 
 
@@ -39,12 +39,9 @@ public class DBManager {
         }
     }
 
-    public static String createUser(String userName, String password) {
-        //MongoCredential credential = MongoCredential.createScramSha256Credential(userName, DBManager.DATABASENAME, password.toCharArray());
-
-        //MongoClient mongoClient = MongoClients.create("mongodb://user1:pwd1@host1/?authSource=db1&authMechanism=SCRAM-SHA-256");
-        MongoClient mongoClient = MongoClients.create("mongodb://" + userName + ":" + password + "@" + DBManager.DB_HOST + "/?authSource=" + DBManager.DATABASENAME + "&authMechanism=SCRAM-SHA-256");
-
-        return "";
+    public static void createUser(String userName, String password) {
+        final BasicDBObject command = new BasicDBObject("createUser", userName).append("pwd", password).append("roles",
+                            Collections.singletonList(new BasicDBObject("role", "readWrite").append("db", DBManager.DATABASENAME)));
+        DBManager.DATABASE.runCommand(command);
     }
 }

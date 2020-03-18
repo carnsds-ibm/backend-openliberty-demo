@@ -1,0 +1,11 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      2   3/18/20, 14:52:23:221 EDT   3/18/20, 14:54:12:420 EDT com.mongodb.MongoSecurityException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.18_14.52.23.0.log
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.18_14.54.12.0.log
+     1      1   3/18/20, 15:26:59:394 EDT   3/18/20, 15:26:59:394 EDT org.bson.codecs.configuration.CodecConfigurationException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.18_15.26.59.0.log
+     2      1   3/18/20, 15:34:50:218 EDT   3/18/20, 15:34:50:218 EDT com.mongodb.MongoCommandException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.18_15.34.50.0.log
+------+------+---------------------------+---------------------------+---------------------------

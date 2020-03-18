@@ -28,6 +28,8 @@ public class UserResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsers() {
         System.out.println("Retrieving All User Data ... " + UserResource.class.getSimpleName() + " [30]");
+        System.out.println(DBManager.MONGO_ADMIN);
+        System.out.println(DBManager.DATABASE);
         Document userDoc = new Document();
         ArrayList<String> names = new ArrayList<>();
 
@@ -64,12 +66,12 @@ public class UserResource {
         
         Document newUser = new Document(DBManager.USER, user.getUserName()).append(DBManager.PASSWORD, user.getPassword());
 
-        if (!checkUsernameExists(user.getUserName())) {
-            DBManager.DATABASE.getCollection(DBManager.USERS).insertOne(newUser);
-        } else {
-            System.out.println("User Data already exists for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [70]");
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.USERALREADYEXISTS + "\"}").build();
-        }
+        // if (!checkUsernameExists(user.getUserName())) {
+        //     DBManager.DATABASE.getCollection(DBManager.USERS).insertOne(newUser);
+        // } else {
+        //     System.out.println("User Data already exists for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [70]");
+        //     return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.USERALREADYEXISTS + "\"}").build();
+        // }
         
         for (Document doc:DBManager.DATABASE.getCollection(DBManager.USERS).find()) {
             System.out.println(doc);
