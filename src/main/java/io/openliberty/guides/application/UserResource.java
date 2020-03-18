@@ -75,11 +75,14 @@ public class UserResource {
             System.out.println(doc);
         }
         System.out.println("Finished creating User Data ... " + UserResource.class.getSimpleName() + " [76]");
+        DBManager.createUser(user.getUserName(), user.getPassword());
         return Response.status(Response.Status.OK).entity(newUser.toString()).build();
     }
 
     private boolean checkUsernameExists(String userName) {
         Document result = findUser(userName);
+
+        if (result == null) return false;
         return userName.equals(result.getString(DBManager.USER));
     } 
 

@@ -1,0 +1,6 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1   3/18/20, 11:50:09:875 EDT   3/18/20, 11:50:09:875 EDT java.lang.NullPointerException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.18_11.50.09.0.log
+------+------+---------------------------+---------------------------+---------------------------
