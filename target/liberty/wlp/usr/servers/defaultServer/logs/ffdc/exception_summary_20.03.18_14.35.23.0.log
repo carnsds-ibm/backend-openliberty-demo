@@ -1,6 +1,0 @@
-
- Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
-------+------+---------------------------+---------------------------+---------------------------
-     0      4   3/18/20, 14:35:23:560 EDT   3/18/20, 14:49:22:967 EDT org.apache.cxf.interceptor.Fault com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1105
-                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.18_14.35.23.0.log
-------+------+---------------------------+---------------------------+---------------------------

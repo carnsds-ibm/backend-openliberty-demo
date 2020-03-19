@@ -11,6 +11,8 @@ import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 
+import org.bson.Document;
+
 public class DBManager {
     private DBManager() {}
 
@@ -23,6 +25,7 @@ public class DBManager {
     public static final String USERNOTFOUND = "user not found";
     public static final String USERALREADYEXISTS = "user already exists";
     public static final String INVALID = "credentials invalid";
+    public static final Document SUCCESS = new Document("msg", "success");
     
     private static final String DB_HOST = System.getenv("DB_HOST");
     private static final int DB_PORT = Integer.parseInt(System.getenv("DB_PORT"));
@@ -44,17 +47,20 @@ public class DBManager {
         }
     }
 
-    public static int createUser(String userName, String password) {
+    public static MongoClient createUser(String userName, String password) {
         try {
             final BasicDBObject command = new BasicDBObject("createUser", userName).append("pwd", password).append("roles",
                 Collections.singletonList(new BasicDBObject("role", "readWrite").append("db", DBManager.DATABASENAME)));
-            return DATABASE.runCommand(command).getDouble("ok").intValue();
+            if (DATABASE.runCommand(command).getDouble("ok").intValue() == 1) {
+                return loginUser(userName, password);
+            }
+            return null;
         } catch (Exception e) {
-            return 2;
+            return null;
         }
     }
 
-    public static int loginUser(String userName, String password) {
+    public static MongoClient loginUser(String userName, String password) {
         MongoCredential credential = MongoCredential.createScramSha1Credential(userName, DBManager.DATABASENAME, password.toCharArray());
 
         MongoClient mongoClient = MongoClients.create(
@@ -64,8 +70,6 @@ public class DBManager {
                 .credential(credential)
                 .build());
 
-        if (mongoClient == null) {
-            return 2;
-        } return 1;
+        return mongoClient;
     }
 }

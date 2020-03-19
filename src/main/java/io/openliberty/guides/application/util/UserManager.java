@@ -1,8 +1,10 @@
 package io.openliberty.guides.application.util;
 
+import java.util.Base64;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import com.mongodb.client.MongoClient;
 import com.mongodb.client.model.Filters;
 
 import org.bson.Document;
@@ -11,7 +13,10 @@ public class UserManager {
 
     public static final String COOKIEOFTHEGODS = "CookieTheDog";
     public static HashMap<String, CacheObject> USERCACHE = new HashMap<>();
-    private static final long dayInMillis = 86400000;
+    public static final Base64.Decoder DECODER = Base64.getDecoder();
+    public static final int MINIMUMCHARS = 8;
+
+    private static final long fourHoursInMillis = 14400000;
 
     static {
         new Thread(){
@@ -21,9 +26,10 @@ public class UserManager {
                     while (USERCACHE.keySet().iterator().hasNext()) {
                         String key = USERCACHE.keySet().iterator().next();
     
-                        if (System.currentTimeMillis() - USERCACHE.get(key).time >= 30000) {
+                        if (System.currentTimeMillis() - USERCACHE.get(key).time >= 90500) {
+                            USERCACHE.get(key).client.close();
                             USERCACHE.remove(key);
-                            System.out.println("Removing entry: " + key);
+                            System.out.println("Removing cache entry: " + key);
                         }
                     }
                 }
@@ -64,19 +70,19 @@ public class UserManager {
         return null;
     }
 
-    public static void insertCache(String userName, String hash) {
-        USERCACHE.put(hash, new CacheObject(userName));
-        System.out.println("Added to cache");
+    public static void insertCache(String userName, String hash, MongoClient client) {
+        USERCACHE.put(hash, new CacheObject(userName, client));
     }
 
     public static class CacheObject {
         public String userName;
         public long time;
+        public MongoClient client;
 
-        public CacheObject(String user) {
+        public CacheObject(String user, MongoClient c) {
             userName = user;
             time = System.currentTimeMillis();
-            System.out.println("Cache Object Created");
+            client = c;
         }
     }
 }

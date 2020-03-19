@@ -1,5 +1,7 @@
 package io.openliberty.guides.application.models;
 
+import io.openliberty.guides.application.util.UserManager;
+
 public class User {
     private String userName;
     private String password;
@@ -9,7 +11,7 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return new String(UserManager.DECODER.decode(password));
     }
 
     public void setUserName(String user) {
