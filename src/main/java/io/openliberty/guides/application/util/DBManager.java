@@ -22,6 +22,7 @@ public class DBManager {
     public static final String DATABASENAME = "clients";
     public static final String ARTICLES = "articles";
     public static final String USERS = "users";
+    public static final String KEY = "key";
     public static final Document USERNOTFOUND = new Document("msg", "error: user not found");
     public static final Document USERALREADYEXISTS = new Document("msg", "error: user already exists");
     public static final Document INVALID = new Document("msg", "error: credentials invalid");

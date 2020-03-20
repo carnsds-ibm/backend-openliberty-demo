@@ -5,6 +5,7 @@ import io.openliberty.guides.application.util.UserManager;
 public class User {
     private String userName;
     private String password;
+    private String key;
     private boolean check;
 
     public String getUserName() {
@@ -13,6 +14,10 @@ public class User {
 
     public String getPassword() {
         return new String(UserManager.DECODER.decode(password));
+    }
+
+    public String getKey() {
+        return key;
     }
 
     public boolean isCheck() {
@@ -25,6 +30,10 @@ public class User {
     
     public void setPassword(String pass) {
         password = pass;
+    }
+
+    public void setKey(String k) {
+        key = k;
     }
 
     public void setCheck(boolean c) {

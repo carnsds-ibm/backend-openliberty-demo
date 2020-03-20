@@ -4,6 +4,8 @@ import java.util.Base64;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import javax.ws.rs.core.Cookie;
+
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.model.Filters;
 
@@ -15,8 +17,8 @@ public class UserManager {
     public static HashMap<String, CacheObject> USERCACHE = new HashMap<>();
     public static final Base64.Decoder DECODER = Base64.getDecoder();
     public static final int MINIMUMCHARS = 8;
-
-    private static final long FOURHOURSINMILLIS = 14400000;
+    public static final int FOURHOURSINMILLIS = 14400000;
+    
     private static final int SLEEPTIME = 10000;
 
     static {
@@ -24,10 +26,11 @@ public class UserManager {
             @Override
             public synchronized void run() {
                 while (true) {
-                    while (USERCACHE.keySet().iterator().hasNext()) {
-                        String key = USERCACHE.keySet().iterator().next();
-    
-                        if (System.currentTimeMillis() - USERCACHE.get(key).time >= 90500) {
+                    Iterator<String> iter = USERCACHE.keySet().iterator();
+                    while (iter.hasNext()) {
+                        String key = iter.next();
+
+                        if (Math.abs(System.currentTimeMillis() - USERCACHE.get(key).time) >= UserManager.FOURHOURSINMILLIS) {
                             USERCACHE.get(key).client.close();
                             USERCACHE.remove(key);
                             System.out.println("Removing cache entry: " + key);
@@ -36,9 +39,9 @@ public class UserManager {
                     try {
                         Thread.sleep(SLEEPTIME);
                     } catch (IllegalArgumentException iae) {
-                        System.err.println("Negative sleeptime provided to thread " + UserManager.class.getSimpleName() + "[37]");
+                        System.err.println("Negative sleeptime provided to thread " + UserManager.class.getSimpleName() + "[39]");
                     } catch (InterruptedException ie) {
-                        System.err.println("Thread was interrupted " + UserManager.class.getSimpleName() + "[37]");
+                        System.err.println("Thread was interrupted " + UserManager.class.getSimpleName() + "[39]");
                     }
                 }
             }
@@ -80,6 +83,21 @@ public class UserManager {
 
     public static void insertCache(String userName, String hash, MongoClient client) {
         USERCACHE.put(hash, new CacheObject(userName, client));
+    }
+
+    public static String checkCache(Cookie cookie, String key) {
+        System.out.println(key);
+
+        if (cookie == null) {
+            if (key == null || key.equals("")) {
+                return null;
+            } else {
+                return key;
+            }
+        } else {
+            System.out.println(cookie.getValue());
+            return cookie.getValue();
+        }
     }
 
     public static class CacheObject {
