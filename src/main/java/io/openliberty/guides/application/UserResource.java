@@ -21,22 +21,23 @@ import org.bson.Document;
 import io.openliberty.guides.application.models.User;
 import io.openliberty.guides.application.util.DBManager;
 import io.openliberty.guides.application.util.HelpTools;
+import io.openliberty.guides.application.util.UserManager;
 
 import static io.openliberty.guides.application.util.UserManager.*;
 
 @RequestScoped
-@Path("")
+@Path("/User")
 public class UserResource {
 
     @GET
-    @Path("/AllUsers")
+    @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllUsers(@CookieParam(COOKIEOFTHEGODS) Cookie cookie) {
         if (USERCACHE.get(cookie.getValue()) == null) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
 
-        System.out.println("Retrieving All User Data ... " + UserResource.class.getSimpleName() + " [38]");
+        System.out.println("Retrieving All User Data ... " + UserResource.class.getSimpleName() + " [44]");
         
         Document userDoc = new Document();
         ArrayList<String> names = new ArrayList<>();
@@ -45,7 +46,7 @@ public class UserResource {
             names.add(doc.getString(DBManager.USER));
         }
         userDoc.append(DBManager.USERS, names);
-        System.out.println("Finished retrieving All User Data ... " + UserResource.class.getSimpleName() + " [47]");
+        System.out.println("Finished retrieving All User Data ... " + UserResource.class.getSimpleName() + " [48]");
 
         return Response.status(Response.Status.OK).entity(userDoc.toJson()).build();
     }
@@ -53,63 +54,83 @@ public class UserResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/CreateUser")
+    @Path("/Create")
     public Response createUser(User user) { 
-        System.out.println(user.getUserName() + " " + user.getPassword());
-
         if (user.getUserName().length() < MINIMUMCHARS ) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+            return Response.status(Response.Status.OK).entity(DBManager.USRLENGTHSHORT.toJson()).build();
         }
 
         if (user.getPassword().length() < MINIMUMCHARS ) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+            return Response.status(Response.Status.OK).entity(DBManager.PWDLENGTHSHORT.toJson()).build();
         }
-
-        System.out.println("Creating User Data ... for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [81]");
-
-        Document newUser = new Document(DBManager.USER, user.getUserName());
 
         if (checkUsernameExists(user.getUserName())) {   
-            System.out.println("User Data already exists for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [86]");
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.USERALREADYEXISTS + "\"}").build();
+            System.out.println("User Data already exists for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [66]");
+            return Response.status(Response.Status.OK).entity(DBManager.USERALREADYEXISTS.toJson()).build();
         }
 
+        if (user.isCheck()) {
+            return Response.status(Response.Status.OK).entity(DBManager.SUCCESS.toJson()).build();
+        }
+
+        System.out.println("Creating User Data ... for User: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [76]");
         MongoClient client = DBManager.createUser(user.getUserName(), user.getPassword());
 
         if (client == null) 
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+            return Response.status(Response.Status.OK).entity(DBManager.DBFAILURE.toJson()).build();
 
+        Document newUser = new Document(DBManager.USER, user.getUserName());
         DBManager.DATABASE.getCollection(DBManager.USERS).insertOne(newUser);
-        System.out.println("Finished creating User Data ... " + UserResource.class.getSimpleName() + " [94]");
+        System.out.println("Finished creating User Data ... " + UserResource.class.getSimpleName() + " [82]");
         
         String hash = HelpTools.hash(user.getUserName(), user.getPassword());
         insertCache(user.getUserName(), hash, client);
         NewCookie userCookie = new NewCookie(COOKIEOFTHEGODS, hash);
         NewCookie userDataCookie = new NewCookie(userCookie, "Hi", 90, false);
         
-        return Response.status(Response.Status.OK).cookie(userDataCookie).entity(newUser.toString()).build();
+        return Response.status(Response.Status.OK).cookie(userDataCookie).entity(DBManager.SUCCESS).build();
     }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/LoginUser")
+    @Path("/Login")
     public Response loginUser(User user) {
-        System.out.println("Logging into user: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [107]");
+        System.out.println("Logging into user: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [100]");
 
         MongoClient client = DBManager.loginUser(user.getUserName(), user.getPassword());
 
         if (client == null) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+            return Response.status(Response.Status.OK).entity(DBManager.USERNOTFOUND.toJson()).build();
         }
         String hash = HelpTools.hash(user.getUserName(), user.getPassword());
         insertCache(user.getUserName(), hash, client);
 
         NewCookie userCookie = new NewCookie(COOKIEOFTHEGODS, hash);
         NewCookie userDataCookie = new NewCookie(userCookie, "Hi", 90, false);
-        Document newUser = new Document(DBManager.USER, user.getUserName());
-        System.out.println("Finished logging in user ... " + UserResource.class.getSimpleName() + " [118]");
+        
+        System.out.println("Finished logging in user ... " + UserResource.class.getSimpleName() + " [109]");
 
-        return Response.status(Response.Status.OK).cookie(userDataCookie).entity(newUser.toString()).build();
+        return Response.status(Response.Status.OK).cookie(userDataCookie).entity(DBManager.SUCCESS).build();
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/Logout")
+    public synchronized Response logoutUser(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, User user) {
+        System.out.println("Logging out of user: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [129]");
+        String cookieValue = cookie.getValue();
+
+        CacheObject cache = USERCACHE.get(cookieValue);
+        if (cache == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
+        }
+        cache.client.close();
+        USERCACHE.remove(cookieValue);
+
+        System.out.println("Finished logging out of user ... " + UserResource.class.getSimpleName() + " [130]");
+
+        return Response.status(Response.Status.OK).entity(DBManager.SUCCESS).build();
     }
 }

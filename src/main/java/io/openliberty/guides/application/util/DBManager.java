@@ -22,9 +22,13 @@ public class DBManager {
     public static final String DATABASENAME = "clients";
     public static final String ARTICLES = "articles";
     public static final String USERS = "users";
-    public static final String USERNOTFOUND = "user not found";
-    public static final String USERALREADYEXISTS = "user already exists";
-    public static final String INVALID = "credentials invalid";
+    public static final Document USERNOTFOUND = new Document("msg", "error: user not found");
+    public static final Document USERALREADYEXISTS = new Document("msg", "error: user already exists");
+    public static final Document INVALID = new Document("msg", "error: credentials invalid");
+    public static final Document NOTLOGGEDIN = new Document("msg", "error: user not logged in");
+    public static final Document USRLENGTHSHORT = new Document("msg", "error: username length too short");
+    public static final Document PWDLENGTHSHORT = new Document("msg", "error: password length too short");
+    public static final Document DBFAILURE = new Document("msg", "error: user not created");
     public static final Document SUCCESS = new Document("msg", "success");
     
     private static final String DB_HOST = System.getenv("DB_HOST");

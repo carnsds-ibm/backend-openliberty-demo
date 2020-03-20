@@ -16,7 +16,8 @@ public class UserManager {
     public static final Base64.Decoder DECODER = Base64.getDecoder();
     public static final int MINIMUMCHARS = 8;
 
-    private static final long fourHoursInMillis = 14400000;
+    private static final long FOURHOURSINMILLIS = 14400000;
+    private static final int SLEEPTIME = 10000;
 
     static {
         new Thread(){
@@ -31,6 +32,13 @@ public class UserManager {
                             USERCACHE.remove(key);
                             System.out.println("Removing cache entry: " + key);
                         }
+                    }
+                    try {
+                        Thread.sleep(SLEEPTIME);
+                    } catch (IllegalArgumentException iae) {
+                        System.err.println("Negative sleeptime provided to thread " + UserManager.class.getSimpleName() + "[37]");
+                    } catch (InterruptedException ie) {
+                        System.err.println("Thread was interrupted " + UserManager.class.getSimpleName() + "[37]");
                     }
                 }
             }

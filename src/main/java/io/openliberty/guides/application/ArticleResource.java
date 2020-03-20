@@ -18,7 +18,9 @@ import io.openliberty.guides.application.util.DBManager;
 
 import static io.openliberty.guides.application.util.UserManager.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -28,6 +30,7 @@ public class ArticleResource {
     private static final String AUTHOR = "author";
     private static final String TITLE = "title";
     private static final String BODY = "body";
+    private static final String DATE = "date";
 
 
     @POST
@@ -35,21 +38,27 @@ public class ArticleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response createArticle(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, Article article) {
-        String cookieValue = cookie.getValue();
-        if (USERCACHE.get(cookieValue) == null) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+        if (cookie == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
 
-        System.out.println("Creating Article ... " + ArticleResource.class.getSimpleName() + " [44]");
+        String cookieValue = cookie.getValue();
+
+        if (USERCACHE.get(cookieValue) == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
+        }
+
+        System.out.println("Creating Article ... " + ArticleResource.class.getSimpleName() + " [58]");
         CacheObject cacheObject = USERCACHE.get(cookieValue);
         Document newDocument = new Document(ArticleResource.AUTHOR, cacheObject.userName)
                                         .append(ArticleResource.TITLE, article.getTitle())
-                                        .append(ArticleResource.BODY, article.getBody());
+                                        .append(ArticleResource.BODY, article.getBody())
+                                        .append(ArticleResource.DATE, new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(new Date()));
 
         cacheObject.client.getDatabase(DBManager.DATABASENAME).getCollection(DBManager.ARTICLES).insertOne(newDocument);
-        System.out.println("Finished creating article ... " + ArticleResource.class.getSimpleName() + " [51]");
+        System.out.println("Finished creating article ... " + ArticleResource.class.getSimpleName() + " [59]");
 
-        return Response.status(Response.Status.OK).entity(newDocument.toJson()).build();
+        return Response.status(Response.Status.OK).entity(DBManager.SUCCESS.toJson()).build();
     }
 
     @POST
@@ -57,35 +66,42 @@ public class ArticleResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response deleteArticle(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, Article article) {
-        String cookieValue = cookie.getValue();
-        if (USERCACHE.get(cookieValue) == null) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+        if (cookie == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
 
-        System.out.println("Deleting Article ... " + ArticleResource.class.getSimpleName() + " [66]");
+        String cookieValue = cookie.getValue();
+        if (USERCACHE.get(cookieValue) == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
+        }
+
+        System.out.println("Deleting Article ... " + ArticleResource.class.getSimpleName() + " [80]");
         CacheObject cacheObject = USERCACHE.get(cookieValue);
         Document newDocument = new Document(ArticleResource.AUTHOR, cacheObject.userName)
                                         .append(ArticleResource.TITLE, article.getTitle())
                                         .append(ArticleResource.BODY, article.getBody());
 
         cacheObject.client.getDatabase(DBManager.DATABASENAME).getCollection(DBManager.ARTICLES).deleteOne(newDocument);
-        System.out.println("Finished deleting article ... " + ArticleResource.class.getSimpleName() + " [73]");
+        System.out.println("Finished deleting article ... " + ArticleResource.class.getSimpleName() + " [81]");
 
-        return Response.status(Response.Status.OK).entity(newDocument.toJson()).build();
+        return Response.status(Response.Status.OK).entity(DBManager.SUCCESS.toJson()).build();
     }
 
     @GET
     @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAllArticle(@CookieParam(COOKIEOFTHEGODS) Cookie cookie) {
+        if (cookie == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
+        }
 
         String cookieValue = cookie.getValue();
 
         if (USERCACHE.get(cookieValue) == null) {
-            return Response.status(Response.Status.OK).entity("{ \"" + DBManager.USER + "\": \"" + DBManager.INVALID + "\"}").build();
+            return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
 
-        System.out.println("Getting all articles ... " + ArticleResource.class.getSimpleName() + " [89]");
+        System.out.println("Getting all articles ... " + ArticleResource.class.getSimpleName() + " [111]");
         CacheObject cacheObject = USERCACHE.get(cookieValue);
         Document responseDoc = new Document();
 
@@ -94,12 +110,12 @@ public class ArticleResource {
         
         while (test.hasNext()) {
             Document result = test.next();
-            Document toAppend = new Document(AUTHOR, result.get(AUTHOR)).append(TITLE, result.get(TITLE)).append(BODY, result.get(BODY));
+            Document toAppend = new Document(AUTHOR, result.get(AUTHOR)).append(TITLE, result.get(TITLE)).append(BODY, result.get(BODY)).append(DATE, result.get(DATE));
             docList.add(toAppend);
         }
 
-        responseDoc.append("articles", docList);
-        System.out.println("Finished getting all articles ... " + ArticleResource.class.getSimpleName() + " [103]");
+        responseDoc.append("articles", docList).append("msg", DBManager.SUCCESS.getString("msg"));
+        System.out.println("Finished getting all articles ... " + ArticleResource.class.getSimpleName() + " [118]");
 
         return Response.status(Response.Status.OK).entity(responseDoc.toJson()).build();
     }
