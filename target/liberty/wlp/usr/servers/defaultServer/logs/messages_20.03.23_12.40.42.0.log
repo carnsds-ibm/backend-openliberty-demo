@@ -1,0 +1,124 @@
+********************************************************************************
+product = Open Liberty 20.0.0.3 (wlp-1.0.38.cl200320200305-1433)
+wlp.install.dir = /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/
+java.home = /usr/local/Cellar/openjdk/13.0.2+8_2/libexec/openjdk.jdk/Contents/Home
+java.version = 13.0.2
+java.runtime = OpenJDK Runtime Environment (13.0.2+8)
+os = Mac OS X (10.15.3; x86_64) (en_US)
+process = 25498@denniss-mbp
+********************************************************************************
+[3/23/20, 12:30:47:576 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0001I: The server defaultServer has been launched.
+[3/23/20, 12:30:48:028 EDT] 0000001b com.ibm.ws.config.xml.internal.ServerXMLConfiguration        A CWWKG0093A: Processing configuration drop-ins resource: /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/configDropins/overrides/liberty-plugin-variable-config.xml
+[3/23/20, 12:30:48:186 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           I CWWKE0002I: The kernel started after 0.812 seconds
+[3/23/20, 12:30:48:201 EDT] 00000023 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0007I: Feature update started.
+[3/23/20, 12:30:48:345 EDT] 00000018 .apache.cxf.cxf.core.3.2:1.0.38.cl200320200305-1433(id=132)] I Aries Blueprint packages not available. So namespaces will not be registered
+[3/23/20, 12:30:48:347 EDT] 00000018 .apache.cxf.cxf.core.3.2:1.0.38.cl200320200305-1433(id=132)] I Aries Blueprint packages not available. So namespaces will not be registered
+[3/23/20, 12:30:48:450 EDT] 00000019 com.ibm.ws.app.manager.internal.monitor.DropinMonitor        A CWWKZ0058I: Monitoring dropins for applications.
+[3/23/20, 12:30:48:511 EDT] 0000001a com.ibm.ws.annocache.service                                 I OSGi Work Path [ /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/workarea/org.eclipse.osgi/41/data ]
+[3/23/20, 12:30:49:103 EDT] 0000002c com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application voidbackend.
+[3/23/20, 12:30:49:104 EDT] 0000002c bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The voidbackend application is using the loose application definition at the /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/apps/voidbackend.war.xml location.
+[3/23/20, 12:30:49:629 EDT] 0000002c com.ibm.ws.session.WASSessionCore                            I SESN8501I: The session manager did not find a persistent storage location; HttpSession objects will be stored in the local application server's memory.
+[3/23/20, 12:30:49:665 EDT] 0000002c org.jboss.weld.Version                                       I WELD-000900: 3.1.1 (Final)
+[3/23/20, 12:30:50:648 EDT] 0000002c com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[3/23/20, 12:30:50:651 EDT] 0000002c com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[3/23/20, 12:30:50:653 EDT] 0000002c com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:30:50:657 EDT] 0000002c com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0001I: Application voidbackend started in 1.554 seconds.
+[3/23/20, 12:30:50:677 EDT] 00000039 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/
+[3/23/20, 12:30:50:682 EDT] 00000023 com.ibm.ws.tcpchannel.internal.TCPPort                       I CWWKO0219I: TCP Channel defaultHttpEndpoint has been started and is now listening for requests on host *  (IPv6) port 9080.
+[3/23/20, 12:30:50:708 EDT] 00000039 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/23/20, 12:30:50:734 EDT] 00000023 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0012I: The server installed the following features: [cdi-2.0, jaxrs-2.1, jaxrsClient-2.1, jndi-1.0, jsonp-1.1, mpConfig-1.3, mpRestClient-1.3, servlet-4.0].
+[3/23/20, 12:30:50:737 EDT] 00000023 com.ibm.ws.kernel.feature.internal.FeatureManager            I CWWKF0008I: Feature update completed in 2.551 seconds.
+[3/23/20, 12:30:50:737 EDT] 00000023 com.ibm.ws.kernel.feature.internal.FeatureManager            A CWWKF0011I: The defaultServer server is ready to run a smarter planet. The defaultServer server started in 3.366 seconds.
+[3/23/20, 12:30:50:790 EDT] 00000037 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:30:59:752 EDT] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:30:59:783 EDT] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application voidbackend has stopped successfully.
+[3/23/20, 12:30:59:789 EDT] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application voidbackend.
+[3/23/20, 12:30:59:789 EDT] 0000002b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The voidbackend application is using the loose application definition at the /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/apps/voidbackend.war.xml location.
+[3/23/20, 12:31:00:010 EDT] 00000031 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:31:00:240 EDT] 0000002b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[3/23/20, 12:31:00:240 EDT] 0000002b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[3/23/20, 12:31:00:240 EDT] 0000002b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:31:00:242 EDT] 0000002b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application voidbackend updated in 0.453 seconds.
+[3/23/20, 12:31:00:242 EDT] 00000036 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/
+[3/23/20, 12:31:00:244 EDT] 00000036 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/23/20, 12:31:00:261 EDT] 0000003b com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:31:08:253 EDT] 0000004b .apache.cxf.cxf.core.3.2:1.0.38.cl200320200305-1433(id=132)] I Setting the server's publish address to be /
+[3/23/20, 12:31:08:444 EDT] 0000004b com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [voidbackend] [/] [io.openliberty.guides.application.MainApplication]: Initialization successful.
+[3/23/20, 12:31:08:889 EDT] 0000004b SystemOut                                                    O Logging into user: pokemon123 UserResource [107]
+[3/23/20, 12:31:09:109 EDT] 0000004b SystemErr                                                    R SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[3/23/20, 12:31:09:110 EDT] 0000004b SystemErr                                                    R SLF4J: Defaulting to no-operation (NOP) logger implementation
+[3/23/20, 12:31:09:110 EDT] 0000004b SystemErr                                                    R SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[3/23/20, 12:31:10:140 EDT] 0000004b SystemOut                                                    O Finished logging in user ... UserResource [116]
+[3/23/20, 12:31:25:926 EDT] 0000003b SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:31:25:927 EDT] 0000003b SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:31:25:929 EDT] 0000003b SystemOut                                                    O Retrieving All User Data ... UserResource [51]
+[3/23/20, 12:31:26:184 EDT] 0000003b SystemOut                                                    O Finished retrieving All User Data ... UserResource [55]
+[3/23/20, 12:31:37:822 EDT] 00000035 SystemOut                                                    O null
+[3/23/20, 12:31:37:822 EDT] 00000035 SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:31:37:826 EDT] 00000035 SystemOut                                                    O Creating Article ... ArticleResource [59]
+[3/23/20, 12:31:37:945 EDT] 00000035 SystemOut                                                    O Finished creating article ... ArticleResource [60]
+[3/23/20, 12:31:46:482 EDT] 00000048 SystemOut                                                    O null
+[3/23/20, 12:31:46:482 EDT] 00000048 SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:31:46:486 EDT] 00000048 SystemOut                                                    O Getting all articles ... ArticleResource [110]
+[3/23/20, 12:31:46:553 EDT] 00000048 SystemOut                                                    O Finished getting all articles ... ArticleResource [119]
+[3/23/20, 12:31:58:528 EDT] 00000032 SystemOut                                                    O null
+[3/23/20, 12:31:58:528 EDT] 00000032 SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:31:58:530 EDT] 00000032 SystemOut                                                    O Deleting Article ... ArticleResource [86]
+[3/23/20, 12:31:58:591 EDT] 00000032 SystemOut                                                    O Finished deleting article ... ArticleResource [87]
+[3/23/20, 12:32:02:438 EDT] 00000032 SystemOut                                                    O null
+[3/23/20, 12:32:02:438 EDT] 00000032 SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:32:02:446 EDT] 00000032 SystemOut                                                    O Getting all articles ... ArticleResource [110]
+[3/23/20, 12:32:02:508 EDT] 00000032 SystemOut                                                    O Finished getting all articles ... ArticleResource [119]
+[3/23/20, 12:33:21:033 EDT] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:33:21:036 EDT] 0000003b com.ibm.ws.webcontainer.servlet                              I SRVE0253I: [voidbackend] [/] [io.openliberty.guides.application.MainApplication]: Destroy successful.
+[3/23/20, 12:33:21:048 EDT] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application voidbackend has stopped successfully.
+[3/23/20, 12:33:21:054 EDT] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application voidbackend.
+[3/23/20, 12:33:21:054 EDT] 0000003b bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The voidbackend application is using the loose application definition at the /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/apps/voidbackend.war.xml location.
+[3/23/20, 12:33:21:075 EDT] 00000031 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:33:21:431 EDT] 0000003b com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[3/23/20, 12:33:21:431 EDT] 0000003b com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[3/23/20, 12:33:21:431 EDT] 0000003b com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:33:21:433 EDT] 0000003b com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application voidbackend updated in 0.379 seconds.
+[3/23/20, 12:33:21:433 EDT] 0000004d com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/
+[3/23/20, 12:33:21:433 EDT] 0000004d com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/23/20, 12:33:21:452 EDT] 00000037 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:33:23:054 EDT] 00000035 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:33:23:063 EDT] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application voidbackend has stopped successfully.
+[3/23/20, 12:33:23:069 EDT] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      I CWWKZ0018I: Starting application voidbackend.
+[3/23/20, 12:33:23:070 EDT] 00000035 bm.ws.app.manager.war.internal.WARDeployedAppInfoFactoryImpl I CWWKZ0134I: The voidbackend application is using the loose application definition at the /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/apps/voidbackend.war.xml location.
+[3/23/20, 12:33:23:081 EDT] 0000004a com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:33:23:449 EDT] 00000035 com.ibm.ws.webcontainer.osgi.webapp.WebGroup                 I SRVE0169I: Loading Web Module: Liberty Project.
+[3/23/20, 12:33:23:449 EDT] 00000035 com.ibm.ws.webcontainer                                      I SRVE0250I: Web Module Liberty Project has been bound to default_host.
+[3/23/20, 12:33:23:449 EDT] 00000035 com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0016I: Web application available (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:33:23:451 EDT] 00000023 com.ibm.ws.session.WASSessionCore                            I SESN0176I: A new session context will be created for application key default_host/
+[3/23/20, 12:33:23:451 EDT] 00000035 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0003I: The application voidbackend updated in 0.382 seconds.
+[3/23/20, 12:33:23:451 EDT] 00000023 com.ibm.ws.util                                              I SESN0172I: The session manager is using the Java default SecureRandom implementation for session ID generation.
+[3/23/20, 12:33:23:484 EDT] 00000031 com.ibm.ws.webcontainer.osgi.mbeans.PluginGenerator          I SRVE9103I: A configuration file for a web server plugin was automatically generated for this server at /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/state/plugin-cfg.xml.
+[3/23/20, 12:33:30:121 EDT] 00000080 .apache.cxf.cxf.core.3.2:1.0.38.cl200320200305-1433(id=132)] I Setting the server's publish address to be /
+[3/23/20, 12:33:30:128 EDT] 00000080 com.ibm.ws.webcontainer.servlet                              I SRVE0242I: [voidbackend] [/] [io.openliberty.guides.application.MainApplication]: Initialization successful.
+[3/23/20, 12:33:30:167 EDT] 00000080 SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:33:30:180 EDT] 00000080 SystemOut                                                    O Deleting Article ... ArticleResource [86]
+[3/23/20, 12:33:30:214 EDT] 00000080 SystemErr                                                    R SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+[3/23/20, 12:33:30:214 EDT] 00000080 SystemErr                                                    R SLF4J: Defaulting to no-operation (NOP) logger implementation
+[3/23/20, 12:33:30:214 EDT] 00000080 SystemErr                                                    R SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+[3/23/20, 12:33:30:837 EDT] 00000080 SystemOut                                                    O Finished deleting article ... ArticleResource [87]
+[3/23/20, 12:33:36:911 EDT] 00000080 SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:33:36:914 EDT] 00000080 SystemOut                                                    O Getting all articles ... ArticleResource [110]
+[3/23/20, 12:33:36:996 EDT] 00000080 SystemOut                                                    O Finished getting all articles ... ArticleResource [119]
+[3/23/20, 12:33:57:829 EDT] 0000003b SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:33:57:832 EDT] 0000003b SystemOut                                                    O Deleting Article ... ArticleResource [86]
+[3/23/20, 12:33:57:880 EDT] 0000003b SystemOut                                                    O Finished deleting article ... ArticleResource [87]
+[3/23/20, 12:34:00:705 EDT] 0000002d SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:34:00:713 EDT] 0000002d SystemOut                                                    O Getting all articles ... ArticleResource [110]
+[3/23/20, 12:34:00:781 EDT] 0000002d SystemOut                                                    O Finished getting all articles ... ArticleResource [119]
+[3/23/20, 12:34:15:602 EDT] 0000004a SystemOut                                                    O Logging out of user: pokemon123 UserResource [136]
+[3/23/20, 12:34:15:603 EDT] 0000004a SystemOut                                                    O 4cd0697c9512d428cd881936c6c1cfd39b36381f457c7bb77996dd04f1b4b67a
+[3/23/20, 12:34:15:610 EDT] 0000004a SystemOut                                                    O Finished logging out of user ... UserResource [137]
+[3/23/20, 12:34:23:815 EDT] 00000014 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0085I: The server defaultServer is stopping because the JVM is exiting.
+[3/23/20, 12:34:23:818 EDT] 00000088 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  A CWWKE1100I: Waiting for up to 30 seconds for the server to quiesce.
+[3/23/20, 12:34:23:827 EDT] 0000007f com.ibm.ws.tcpchannel.internal.TCPChannel                    I CWWKO0220I: TCP Channel defaultHttpEndpoint has stopped listening for requests on host *  (IPv6) port 9080.
+[3/23/20, 12:34:23:829 EDT] 0000007f com.ibm.ws.http.internal.VirtualHostImpl                     A CWWKT0017I: Web application removed (default_host): http://denniss-mbp:9080/
+[3/23/20, 12:34:24:073 EDT] 00000015 com.ibm.ws.kernel.launch.internal.ServerCommandListener      A CWWKE0055I: Server shutdown requested on Monday, March 23, 2020 at 12:34 PM. The server defaultServer is shutting down.
+[3/23/20, 12:34:24:834 EDT] 00000088 com.ibm.ws.runtime.update.internal.RuntimeUpdateManagerImpl  I CWWKE1101I: Server quiesce complete.
+[3/23/20, 12:34:24:857 EDT] 00000039 com.ibm.ws.app.manager.AppMessageHelper                      A CWWKZ0009I: The application voidbackend has stopped successfully.
+[3/23/20, 12:34:25:165 EDT] 00000001 com.ibm.ws.kernel.launch.internal.FrameworkManager           A CWWKE0036I: The server defaultServer stopped after 3 minutes, 37.814 seconds.

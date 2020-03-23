@@ -31,11 +31,13 @@ public class DBManager {
     public static final Document PWDLENGTHSHORT = new Document("msg", "error: password length too short");
     public static final Document DBFAILURE = new Document("msg", "error: user not created");
     public static final Document SUCCESS = new Document("msg", "success");
+    public static final Document FAILURE = new Document("msg", "error: failure");
+    public static final Document ARTICLEEXISTS = new Document("msg", "error: article already exists");
     
-    private static final String DB_HOST = System.getenv("DB_HOST");
-    private static final int DB_PORT = Integer.parseInt(System.getenv("DB_PORT"));
-    private static final String DB_ADMINUSER = System.getenv("DB_ADMINUSER");
-    private static final String DB_ADMINPWD = System.getenv("DB_ADMINPWD");
+    private static final String DB_HOST = System.getenv("DB_HOST") == null ? "localhost" : System.getenv("DB_HOST");
+    private static final int DB_PORT = System.getenv("DB_PORT") == null ? 27017 : Integer.parseInt(System.getenv("DB_PORT"));
+    private static final String DB_ADMINUSER = System.getenv("DB_ADMINUSER") == null ? "admin" : System.getenv("DB_ADMINUSER");
+    private static final String DB_ADMINPWD = System.getenv("DB_ADMINPWD") == null ? "admin" : System.getenv("DB_ADMINPWD");
 
     // Database 
     public static final MongoClient MONGO_ADMIN = MongoClients.create("mongodb://" + DBManager.DB_ADMINUSER + ":" + DBManager.DB_ADMINPWD + "@" + DBManager.DB_HOST + ":" + DBManager.DB_PORT + "/?authSource=admin&authMechanism=SCRAM-SHA-1");

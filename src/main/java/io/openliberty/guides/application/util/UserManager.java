@@ -1,7 +1,8 @@
 package io.openliberty.guides.application.util;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Base64;
-import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.ws.rs.core.Cookie;
@@ -11,42 +12,20 @@ import com.mongodb.client.model.Filters;
 
 import org.bson.Document;
 
-public class UserManager {
+import redis.clients.jedis.Jedis;
 
+public class UserManager {
+    private static final String R_HOST = System.getenv("R_HOST") == null ? "localhost" : System.getenv("R_HOST");
+    private static final String R_PORT = System.getenv("R_PORT") == null ? "6379" : System.getenv("R_PORT");
+    private static final String R_PASS = System.getenv("R_PASS") == null ? "password" : System.getenv("R_PASS");
+    private static final String R_ADDR = "redis://" + R_HOST + ":" + R_PORT;
+    private static final String RMAPNAME = "usermap";
+    
+    public static final Jedis JEDIS = new Jedis(R_HOST);
     public static final String COOKIEOFTHEGODS = "CookieTheDog";
-    public static HashMap<String, CacheObject> USERCACHE = new HashMap<>();
     public static final Base64.Decoder DECODER = Base64.getDecoder();
     public static final int MINIMUMCHARS = 8;
     public static final int FOURHOURSINMILLIS = 14400000;
-    
-    private static final int SLEEPTIME = 10000;
-
-    static {
-        new Thread(){
-            @Override
-            public synchronized void run() {
-                while (true) {
-                    Iterator<String> iter = USERCACHE.keySet().iterator();
-                    while (iter.hasNext()) {
-                        String key = iter.next();
-
-                        if (Math.abs(System.currentTimeMillis() - USERCACHE.get(key).time) >= UserManager.FOURHOURSINMILLIS) {
-                            USERCACHE.get(key).client.close();
-                            USERCACHE.remove(key);
-                            System.out.println("Removing cache entry: " + key);
-                        }
-                    }
-                    try {
-                        Thread.sleep(SLEEPTIME);
-                    } catch (IllegalArgumentException iae) {
-                        System.err.println("Negative sleeptime provided to thread " + UserManager.class.getSimpleName() + "[39]");
-                    } catch (InterruptedException ie) {
-                        System.err.println("Thread was interrupted " + UserManager.class.getSimpleName() + "[39]");
-                    }
-                }
-            }
-        }.start();
-    }
 
     public static boolean checkUsernameExists(String userName) {
         Document result = findUser(userName);
@@ -81,13 +60,16 @@ public class UserManager {
         return null;
     }
 
-    public static void insertCache(String userName, String hash, MongoClient client) {
-        USERCACHE.put(hash, new CacheObject(userName, client));
+    public static void insertCache(String userName, String hash, String pass) {
+        try {
+            JEDIS.set(hash, Serializer.toString(new CacheObject(userName, pass)));
+        } catch (IOException e) {
+            System.out.println("Could not serialize username: " + userName + " " + e);
+        }
+        
     }
 
     public static String checkCache(Cookie cookie, String key) {
-        System.out.println(key);
-
         if (cookie == null) {
             if (key == null || key.equals("")) {
                 return null;
@@ -95,20 +77,18 @@ public class UserManager {
                 return key;
             }
         } else {
-            System.out.println(cookie.getValue());
             return cookie.getValue();
         }
     }
 
-    public static class CacheObject {
+    public static class CacheObject implements Serializable {
+        public static final long serialVersionUID = 42;
         public String userName;
-        public long time;
-        public MongoClient client;
+        public String mongoPass;
 
-        public CacheObject(String user, MongoClient c) {
+        public CacheObject(String user, String pass) {
             userName = user;
-            time = System.currentTimeMillis();
-            client = c;
+            mongoPass = pass;
         }
     }
 }

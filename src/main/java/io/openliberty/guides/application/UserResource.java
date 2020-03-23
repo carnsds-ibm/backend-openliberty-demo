@@ -20,7 +20,7 @@ import org.bson.Document;
 import io.openliberty.guides.application.models.User;
 import io.openliberty.guides.application.util.DBManager;
 import io.openliberty.guides.application.util.HelpTools;
-import io.openliberty.guides.application.util.UserManager;
+import io.openliberty.guides.application.util.Serializer;
 
 import static io.openliberty.guides.application.util.UserManager.*;
 
@@ -38,7 +38,7 @@ public class UserResource {
             return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
         
-        if (USERCACHE.get(key) == null) {
+        if (JEDIS.get(key) == null) {
             return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
 
@@ -89,9 +89,9 @@ public class UserResource {
         System.out.println("Finished creating User Data ... " + UserResource.class.getSimpleName() + " [89]");
         
         String hash = HelpTools.hash(user.getUserName(), user.getPassword());
-        insertCache(user.getUserName(), hash, client);
+        insertCache(user.getUserName(), hash, user.getPassword());
         NewCookie userDataCookie = new NewCookie(COOKIEOFTHEGODS, hash, "/", null, 1,"Hi", FOURHOURSINMILLIS, false);
-        
+        client.close();
         return Response.status(Response.Status.OK).cookie(userDataCookie).entity(DBManager.SUCCESS.append(DBManager.KEY, hash).toJson()).build();
     }
 
@@ -108,11 +108,12 @@ public class UserResource {
             return Response.status(Response.Status.OK).entity(DBManager.USERNOTFOUND.toJson()).build();
         }
         String hash = HelpTools.hash(user.getUserName(), user.getPassword());
-        insertCache(user.getUserName(), hash, client);
+        insertCache(user.getUserName(), hash, user.getPassword());
 
         NewCookie userDataCookie = new NewCookie(COOKIEOFTHEGODS, hash, "/", null, 1,"Hi", FOURHOURSINMILLIS, false);
         
         System.out.println("Finished logging in user ... " + UserResource.class.getSimpleName() + " [116]");
+        client.close();
 
         return Response.status(Response.Status.OK).cookie(userDataCookie).entity(DBManager.SUCCESS.append(DBManager.KEY, hash).toJson()).build();
     }
@@ -129,12 +130,26 @@ public class UserResource {
             return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
 
-        CacheObject cache = USERCACHE.get(key);
+        CacheObject cache;
+
+        try {
+            cache = (CacheObject)Serializer.fromString(JEDIS.get(key));
+        } catch (Exception e) {
+            System.out.println("Something bad happened: " + e);
+            return Response.status(Response.Status.OK).entity(DBManager.FAILURE.toJson()).build();
+        }
+        
         if (cache == null) {
             return Response.status(Response.Status.OK).entity(DBManager.NOTLOGGEDIN.toJson()).build();
         }
-        cache.client.close();
-        USERCACHE.remove(key);
+
+        MongoClient client = DBManager.loginUser(cache.userName, cache.mongoPass);
+        if (client == null) {
+            return Response.status(Response.Status.OK).entity(DBManager.USERNOTFOUND.toJson()).build();
+        }
+        
+        JEDIS.del(key);
+        client.close();
 
         System.out.println("Finished logging out of user ... " + UserResource.class.getSimpleName() + " [137]");
 
