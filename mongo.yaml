@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: mongo-deploy
+  name: mongo-deploy
+  namespace: thevoid
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-deploy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: mongo-deploy
+        tier: backend
+    spec:
+      containers:
+      - image: mongo:3.6.17
+        name: mongo
+        env:
+        - name: MONGO_INITDB_ROOT_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: void-secret
+              key: DB_ADMINUSER
+        - name: MONGO_INITDB_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: void-secret
+              key: DB_ADMINPWD
+        args: [ "--auth" ]
+        ports:
+        - containerPort: 27017
+        volumeMounts:
+        - name: data
+          mountPath: /data/db
+        resources: {}
+      volumes:
+      - name: data
+        emptyDir: {}
+status: {}

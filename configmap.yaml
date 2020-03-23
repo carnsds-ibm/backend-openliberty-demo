@@ -1,0 +1,20 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  data:
+    DB_HOST: 172.21.44.34
+    DB_PORT: "8081"
+    R_HOST: 172.21.106.15
+    R_PORT: "6379"
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: "2020-03-23T20:05:57Z"
+    name: void-config
+    namespace: thevoid
+    resourceVersion: "13565431"
+    selfLink: /api/v1/namespaces/thevoid/configmaps/void-config
+    uid: 6943b7c7-6b5f-4255-bd72-3d19f0f0293b
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

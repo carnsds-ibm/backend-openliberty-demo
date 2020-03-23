@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<archive>
-    <dir sourceOnDisk="/Users/dennismila/Desktop/backend-openliberty-demo/src/main/webapp" targetInArchive="/"/>
-    <dir sourceOnDisk="/Users/dennismila/Desktop/backend-openliberty-demo/target/classes" targetInArchive="/WEB-INF/classes"/>
-    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar" targetInArchive="/WEB-INF/lib/commons-lang3-3.9.jar"/>
-    <file sourceOnDisk="/Users/dennismila/Desktop/backend-openliberty-demo/target/tmp/META-INF/MANIFEST.MF" targetInArchive="/META-INF/MANIFEST.MF"/>
-</archive>

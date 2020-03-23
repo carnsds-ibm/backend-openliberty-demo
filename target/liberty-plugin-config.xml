@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <liberty-plugin-config>
-    <installDirectory>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp</installDirectory>
-    <serverDirectory>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer</serverDirectory>
-    <userDirectory>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr</userDirectory>
-    <serverOutputDirectory>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer</serverOutputDirectory>
+    <installDirectory>/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp</installDirectory>
+    <serverDirectory>/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer</serverDirectory>
+    <userDirectory>/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp/usr</userDirectory>
+    <serverOutputDirectory>/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer</serverOutputDirectory>
     <serverName>defaultServer</serverName>
-    <configDirectory>/Users/dennismila/Desktop/backend-openliberty-demo/src/main/liberty/config</configDirectory>
-    <configFile>/Users/dennismila/Desktop/backend-openliberty-demo/src/main/liberty/config/server.xml</configFile>
+    <configDirectory>/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/liberty/config</configDirectory>
+    <configFile>/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/liberty/config/server.xml</configFile>
     <appsDirectory>apps</appsDirectory>
     <looseApplication>true</looseApplication>
     <stripVersion>false</stripVersion>
@@ -18,10 +18,10 @@
         <version>20.0.0.3</version>
         <type>zip</type>
     </assemblyArtifact>
-    <assemblyArchive>/Users/dennismila/.m2/repository/io/openliberty/openliberty-kernel/20.0.0.3/openliberty-kernel-20.0.0.3.zip</assemblyArchive>
-    <assemblyInstallDirectory>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty</assemblyInstallDirectory>
+    <assemblyArchive>/Users/dilloncarns/.m2/repository/io/openliberty/openliberty-kernel/20.0.0.3/openliberty-kernel-20.0.0.3.zip</assemblyArchive>
+    <assemblyInstallDirectory>/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty</assemblyInstallDirectory>
     <refresh>false</refresh>
-    <installAppsConfigDropins>/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/install_apps_configuration_1491924271.xml</installAppsConfigDropins>
+    <installAppsConfigDropins>/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/configDropins/defaults/install_apps_configuration_1491924271.xml</installAppsConfigDropins>
     <projectType>war</projectType>
     <projectCompileDependency>org.apache.commons:commons-lang3:3.9</projectCompileDependency>
     <projectCompileDependency>org.mongodb:mongodb-driver-sync:3.12.2</projectCompileDependency>
