@@ -13,7 +13,10 @@ import javax.ws.rs.core.Response;
 import com.mongodb.client.MongoClient;
 
 import org.bson.Document;
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 
+import io.openliberty.guides.application.client.UnknownUriException;
+import io.openliberty.guides.application.client.UnknownUriExceptionMapper;
 import io.openliberty.guides.application.models.Article;
 import io.openliberty.guides.application.util.DBManager;
 import io.openliberty.guides.application.util.Serializer;
@@ -26,6 +29,7 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+@RegisterProvider(UnknownUriExceptionMapper.class)
 @RequestScoped
 @Path("/Article")
 public class ArticleResource {
@@ -39,7 +43,7 @@ public class ArticleResource {
     @Path("/Create")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response createArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) {
+    public Response createArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) throws UnknownUriException {
         String key = UserManager.checkCache(cookie, article.getKey());;
         
         if (key == null) {
@@ -81,7 +85,7 @@ public class ArticleResource {
     @Path("/Delete")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public Response deleteArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) {
+    public Response deleteArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) throws UnknownUriException {
         String key = UserManager.checkCache(cookie, article.getKey());
 
         if (key == null) {
@@ -116,7 +120,7 @@ public class ArticleResource {
     @POST
     @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) {
+    public Response getAllArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) throws UnknownUriException {
         String key = UserManager.checkCache(cookie, article.getKey());
 
         if (key == null) {

@@ -16,7 +16,10 @@ import javax.ws.rs.core.Response;
 import com.mongodb.client.MongoClient;
 
 import org.bson.Document;
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 
+import io.openliberty.guides.application.client.UnknownUriException;
+import io.openliberty.guides.application.client.UnknownUriExceptionMapper;
 import io.openliberty.guides.application.models.User;
 import io.openliberty.guides.application.util.DBManager;
 import io.openliberty.guides.application.util.HelpTools;
@@ -24,6 +27,7 @@ import io.openliberty.guides.application.util.Serializer;
 
 import static io.openliberty.guides.application.util.UserManager.*;
 
+@RegisterProvider(UnknownUriExceptionMapper.class)
 @RequestScoped
 @Path("/User")
 public class UserResource {
@@ -31,7 +35,7 @@ public class UserResource {
     @POST
     @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllUsers(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, User user) {
+    public Response getAllUsers(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, User user)  throws UnknownUriException {
         String key = checkCache(cookie, user.getKey());
 
         if (key == null) {
@@ -60,7 +64,7 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/Create")
-    public Response createUser(User user) { 
+    public Response createUser(User user) throws UnknownUriException { 
         if (user.getUserName().length() < MINIMUMCHARS ) {
             return Response.status(Response.Status.OK).entity(DBManager.USRLENGTHSHORT.toJson()).build();
         }
@@ -99,7 +103,7 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/Login")
-    public Response loginUser(User user) {
+    public Response loginUser(User user) throws UnknownUriException {
         System.out.println("Logging into user: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [107]");
 
         MongoClient client = DBManager.loginUser(user.getUserName(), user.getPassword());
@@ -122,7 +126,7 @@ public class UserResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/Logout")
-    public synchronized Response logoutUser(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, User user) {
+    public synchronized Response logoutUser(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, User user) throws UnknownUriException {
         System.out.println("Logging out of user: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [136]");
         String key = checkCache(cookie, user.getKey());
 

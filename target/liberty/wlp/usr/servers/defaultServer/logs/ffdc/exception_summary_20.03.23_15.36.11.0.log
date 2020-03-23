@@ -1,0 +1,10 @@
+
+ Index  Count  Time of first Occurrence    Time of last Occurrence     Exception SourceId ProbeId
+------+------+---------------------------+---------------------------+---------------------------
+     0      1   3/23/20, 15:36:11:859 EDT   3/23/20, 15:36:11:859 EDT java.lang.NoClassDefFoundError com.ibm.wsspi.injectionengine.MethodMap.getAllDeclaredMethods 106
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.23_15.36.11.0.log
+     1      1   3/23/20, 15:37:21:218 EDT   3/23/20, 15:37:21:218 EDT java.lang.NoClassDefFoundError com.ibm.ws.webcontainer.servlet.ServletWrapper.init 181
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.23_15.37.21.0.log
+     2      1   3/23/20, 15:37:21:443 EDT   3/23/20, 15:37:21:443 EDT javax.servlet.ServletException com.ibm.ws.webcontainer.filter.WebAppFilterManager.invokeFilters 1064
+                                                                            - /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/usr/servers/defaultServer/logs/ffdc/ffdc_20.03.23_15.37.21.1.log
+------+------+---------------------------+---------------------------+---------------------------
