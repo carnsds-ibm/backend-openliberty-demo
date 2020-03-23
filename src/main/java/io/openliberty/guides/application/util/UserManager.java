@@ -7,7 +7,6 @@ import java.util.Iterator;
 
 import javax.ws.rs.core.Cookie;
 
-import com.mongodb.client.MongoClient;
 import com.mongodb.client.model.Filters;
 
 import org.bson.Document;
