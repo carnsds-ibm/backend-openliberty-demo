@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  creationTimestamp: null
   labels:
     app: redis-deploy
   name: redis-deploy
@@ -11,9 +10,10 @@ spec:
   selector:
     matchLabels:
       app: redis-deploy
-  strategy: {}
   template:
     metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
       labels:
         app: redis-deploy
         tier: backend
@@ -23,5 +23,11 @@ spec:
         name: redis
         ports:
         - containerPort: 6379
-        resources: {}
+        volumeMounts:
+        - name: data
+          mountPath: /data
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: redis-pvc-thevoid
 status: {}
