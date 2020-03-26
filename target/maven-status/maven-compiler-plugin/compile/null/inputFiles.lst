@@ -10,5 +10,6 @@
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/client/UnknownUriExceptionMapper.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/UserManager.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/HelpTools.java
+/Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/CorsFilter.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/models/User.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemApplication.java
