@@ -9,11 +9,11 @@ public class User {
     private boolean check;
 
     public String getUserName() {
-        return userName;
+        return userName.trim();
     }
 
     public String getPassword() {
-        return new String(UserManager.DECODER.decode(password));
+        return new String(UserManager.DECODER.decode(password)).trim();
     }
 
     public String getKey() {

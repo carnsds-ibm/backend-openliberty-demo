@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <archive>
-    <dir sourceOnDisk="/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/webapp" targetInArchive="/"/>
-    <dir sourceOnDisk="/Users/dilloncarns/Projects/backend-openliberty-demo/target/classes" targetInArchive="/WEB-INF/classes"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar" targetInArchive="/WEB-INF/lib/commons-lang3-3.9.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/mongodb/mongodb-driver-sync/3.12.2/mongodb-driver-sync-3.12.2.jar" targetInArchive="/WEB-INF/lib/mongodb-driver-sync-3.12.2.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/mongodb/bson/3.12.2/bson-3.12.2.jar" targetInArchive="/WEB-INF/lib/bson-3.12.2.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/mongodb/mongodb-driver-core/3.12.2/mongodb-driver-core-3.12.2.jar" targetInArchive="/WEB-INF/lib/mongodb-driver-core-3.12.2.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar" targetInArchive="/WEB-INF/lib/guava-20.0.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/redis/clients/jedis/3.2.0/jedis-3.2.0.jar" targetInArchive="/WEB-INF/lib/jedis-3.2.0.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" targetInArchive="/WEB-INF/lib/slf4j-api-1.7.25.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/.m2/repository/org/apache/commons/commons-pool2/2.6.2/commons-pool2-2.6.2.jar" targetInArchive="/WEB-INF/lib/commons-pool2-2.6.2.jar"/>
-    <file sourceOnDisk="/Users/dilloncarns/Projects/backend-openliberty-demo/target/tmp/META-INF/MANIFEST.MF" targetInArchive="/META-INF/MANIFEST.MF"/>
+    <dir sourceOnDisk="/Users/dennismila/Desktop/backend-openliberty-demo/src/main/webapp" targetInArchive="/"/>
+    <dir sourceOnDisk="/Users/dennismila/Desktop/backend-openliberty-demo/target/classes" targetInArchive="/WEB-INF/classes"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/apache/commons/commons-lang3/3.9/commons-lang3-3.9.jar" targetInArchive="/WEB-INF/lib/commons-lang3-3.9.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/mongodb/mongodb-driver-sync/3.12.2/mongodb-driver-sync-3.12.2.jar" targetInArchive="/WEB-INF/lib/mongodb-driver-sync-3.12.2.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/mongodb/bson/3.12.2/bson-3.12.2.jar" targetInArchive="/WEB-INF/lib/bson-3.12.2.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/mongodb/mongodb-driver-core/3.12.2/mongodb-driver-core-3.12.2.jar" targetInArchive="/WEB-INF/lib/mongodb-driver-core-3.12.2.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar" targetInArchive="/WEB-INF/lib/guava-20.0.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/redis/clients/jedis/3.2.0/jedis-3.2.0.jar" targetInArchive="/WEB-INF/lib/jedis-3.2.0.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar" targetInArchive="/WEB-INF/lib/slf4j-api-1.7.25.jar"/>
+    <file sourceOnDisk="/Users/dennismila/.m2/repository/org/apache/commons/commons-pool2/2.6.2/commons-pool2-2.6.2.jar" targetInArchive="/WEB-INF/lib/commons-pool2-2.6.2.jar"/>
+    <file sourceOnDisk="/Users/dennismila/Desktop/backend-openliberty-demo/target/tmp/META-INF/MANIFEST.MF" targetInArchive="/META-INF/MANIFEST.MF"/>
 </archive>

@@ -6,6 +6,7 @@ import java.util.Collections;
 import com.mongodb.BasicDBObject;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.MongoCredential;
+import com.mongodb.MongoSecurityException;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
@@ -58,8 +59,10 @@ public class DBManager {
         try {
             final BasicDBObject command = new BasicDBObject("createUser", userName).append("pwd", password).append("roles",
                 Collections.singletonList(new BasicDBObject("role", "readWrite").append("db", DBManager.DATABASENAME)));
+            
+                System.out.println(command.toJson());
             if (DATABASE.runCommand(command).getDouble("ok").intValue() == 1) {
-                return loginUser(userName, password);
+                return loginNewUser(userName, password);
             }
             return null;
         } catch (Exception e) {
@@ -67,7 +70,7 @@ public class DBManager {
         }
     }
 
-    public static MongoClient loginUser(String userName, String password) {
+    public static MongoClient loginNewUser(String userName, String password) {
         MongoCredential credential = MongoCredential.createScramSha1Credential(userName, DBManager.DATABASENAME, password.toCharArray());
 
         MongoClient mongoClient = MongoClients.create(
@@ -78,5 +81,25 @@ public class DBManager {
                 .build());
 
         return mongoClient;
+    }
+
+    public static MongoClient loginUser(String userName, String password) {
+        try {
+            MongoClient mongoClient = MongoClients.create("mongodb://" + userName + ":" + password + "@" + DBManager.DB_HOST + ":" + DBManager.DB_PORT + "/?authSource=clients&authMechanism=SCRAM-SHA-1");
+            MongoDatabase database = mongoClient.getDatabase("clients");
+
+            if (database.getCollection(DBManager.USERS) != null) {
+                database.createCollection("testcollection");
+                database.getCollection("testcollection").drop();
+            }
+
+            return mongoClient;
+        } catch (IllegalArgumentException ex) {
+            System.out.println("Failed to login");
+            return null;
+        } catch (MongoSecurityException mse) {
+            System.out.println("Incorrect username or password attempted to login");
+            return null;
+        }
     }
 }

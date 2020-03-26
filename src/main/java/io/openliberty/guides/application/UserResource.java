@@ -106,6 +106,7 @@ public class UserResource {
     public Response loginUser(User user) throws UnknownUriException {
         System.out.println("Logging into user: " + user.getUserName() + " " + UserResource.class.getSimpleName() + " [107]");
 
+        System.out.println("password: " + user.getPassword());
         MongoClient client = DBManager.loginUser(user.getUserName(), user.getPassword());
 
         if (client == null) {
