@@ -1,3 +1,9 @@
+<<<<<<< HEAD
 #Thu Mar 26 11:52:48 EDT 2020
 /Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp/lib/versions/service.fingerprint=0a32302e302e302e33
 core=/Users/dennismila/Desktop/backend-openliberty-demo/target/liberty/wlp
+=======
+#Mon Mar 23 15:45:32 EDT 2020
+core=/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp
+/Users/dilloncarns/Projects/backend-openliberty-demo/target/liberty/wlp/lib/versions/service.fingerprint=0a32302e302e302e33
+>>>>>>> de62d2057cfdf953f2a340b00a6aed44093a230f

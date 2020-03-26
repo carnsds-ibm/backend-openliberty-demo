@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/Serializer.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/models/Article.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/ArticleResource.java
@@ -13,3 +14,19 @@
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/CorsFilter.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/models/User.java
 /Users/dennismila/Desktop/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemApplication.java
+=======
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemResource.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/models/User.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/UserResource.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/Serializer.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/client/UnknownUriExceptionMapper.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/ArticleResource.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/DBManager.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/WebResource.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/client/UnknownUriException.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/HelpTools.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/models/Article.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/UserManager.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemApplication.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/MainApplication.java
+>>>>>>> de62d2057cfdf953f2a340b00a6aed44093a230f
