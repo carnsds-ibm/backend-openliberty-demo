@@ -27,9 +27,11 @@ spec:
   http:
   - match:
     - uri:
-        prefix: /App
-    rewrite:
-        uri: /
+        prefix: /static
+    - uri:
+        prefix: /sockjs-node
+    - uri:
+        exact: /
     route:
     - destination:
         host: frontend-service
