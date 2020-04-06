@@ -1,6 +1,6 @@
 # Open Liberty - Eclipse MicroProfile Demo - The Void
 
-Thanks for checking out the repo, this was a rough draft project trying to play with RH ServiceMesh as well as create a backend application that had a couple different transactions with different services. We utilized Eclipse MicroProfile to create the backend in the Open Liberty Framework to create a RESTful experience with JAX-RS. It connects to MongoDB and Redis for session key caching. Yaml files are provided to deploy everything to a cluster. A docker file is also provided if you'd prefer to build a local image, however the file `yaml/backend.yaml` provides a public image readily available.
+Thanks for checking out the repo, this was a rough draft project trying to play with RH ServiceMesh as well as create a backend application that had a couple different transactions with different services. We utilized Eclipse MicroProfile to create the backend in the Open Liberty Framework to create a RESTful experience with JAX-RS. It connects to MongoDB and Redis for session key caching. Yaml files are provided to deploy everything to a cluster. A docker file is also provided if you'd prefer to build a local image, however the file `k8s_yamls/backend.yaml` provides a public image readily available if you check the template image field.
 
 ##  How to Run locally
 - You will first need a couple env variables set. 
@@ -17,7 +17,10 @@ Thanks for checking out the repo, this was a rough draft project trying to play 
    - Then start your backend, in root folder of project, please run:
      - `mvn liberty:dev` or `mvn liberty:run`
  - Then navigate to `localhost:9080` in a browser. If you see a calculator, it's running.
- - Next use post man to query the different endpoints found in `endpoints.xlsx`
+ - Next use post man or another request generator to query the different endpoints found in `endpoints.xlsx`
 ## If running on a cluster
 
-Just login into your cluster then `kubectl apply -f yaml/*.yaml` or `oc apply -f yaml/*.yaml`. If there are environment variables to change please change `configmap.yaml` data fields or edit the `adminscret.yaml` for DB_ADMINUSER and DB_ADMINPWD.
+Just login into your cluster then `kubectl apply -f k8s_yamls/*.yaml` or `oc apply -f k8s_yamls/*.yaml`. If there are environment variables to change please change `configmap.yaml` data fields or edit the `adminscret.yaml` for DB_ADMINUSER and DB_ADMINPWD.
+
+## Link to a working Frontend if needed
+- [frontend with ReactJS](https://github.com/mary-crivelli/void-frontend)
