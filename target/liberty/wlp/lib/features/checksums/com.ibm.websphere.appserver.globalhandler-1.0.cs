@@ -1,4 +1,4 @@
-#Thu Mar 26 13:25:30 EDT 2020
+#Tue Mar 31 15:47:58 EDT 2020
 lib/features/com.ibm.websphere.appserver.globalhandler-1.0.mf=b8f7b0ffdb64dd44b76e98d52c17f2be
 lib/com.ibm.ws.webservices.handler_1.0.38.jar=b304ca76703c4f30a61b0c69f4ae226d
 dev/spi/ibm/javadoc/com.ibm.websphere.appserver.spi.globalhandler_1.0-javadoc.zip=9f56b4d66d2d9179c8f01219e83cd8a9

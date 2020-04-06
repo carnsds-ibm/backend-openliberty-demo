@@ -1,4 +1,5 @@
 /Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/system/SystemResource.java
+/Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/CorsFilter.java
 /Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/models/User.java
 /Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/UserResource.java
 /Users/dilloncarns/Projects/backend-openliberty-demo/src/main/java/io/openliberty/guides/application/util/Serializer.java

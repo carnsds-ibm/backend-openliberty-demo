@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backend-deploy
+  name: backend-deploy
+  namespace: thevoid
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend-deploy
+  strategy: {}
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: backend-deploy
+        tier: backend
+    spec:
+      containers:
+      - image: dennismila/backend-void:1.0
+        name: void-backend
+        ports:
+        - containerPort: 9080
+        env:
+        - name: DB_ADMINUSER
+          valueFrom:
+            secretKeyRef:
+              name: void-secret
+              key: DB_ADMINUSER
+        - name: DB_ADMINPWD
+          valueFrom:
+            secretKeyRef:
+              name: void-secret
+              key: DB_ADMINPWD
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: void-config
+              key: DB_HOST
+        - name: DB_PORT 
+          valueFrom:
+            configMapKeyRef:
+              name: void-config
+              key: DB_PORT
+        - name: R_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: void-config
+              key: R_HOST
+        - name: R_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: void-config
+              key: R_PORT
+status: {}

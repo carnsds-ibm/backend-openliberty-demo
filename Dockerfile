@@ -13,7 +13,7 @@ LABEL \
   vendor="Open Liberty" \
   name="article-backend" \
   version="$VERSION-$REVISION" \
-  summary="The calculator microservice" \
+  summary="Thevoid backend microservice" \
   description="This image contains the article microservice running with the Open Liberty runtime."
 
 COPY --chown=1001:0 \
