@@ -1,6 +1,6 @@
 # Open Liberty - Eclipse MicroProfile Demo - The Void
 
-Thanks for checking out the repo, this was a rough draft project trying to play with RH ServiceMesh as well as create a backend application that had a couple different transactions with different services. We utilized Eclipse MicroProfile to create the backend in the Open Liberty Framework to create a RESTful experience with JAX-RS. It connects to MongoDB and Redis for session key caching. Yaml files are provided to deploy everything to a cluster. A docker file is also provided if you'd prefer to build a local image, however the file `yaml/backend.yaml` provides a public image readily available.
+Thanks for checking out the repo, this was a rough draft project trying to play with RH ServiceMesh as well as create a backend application that had a couple different transactions with different services. We utilized Eclipse MicroProfile to create the backend in the Open Liberty Framework to create a RESTful experience with JAX-RS. It connects to MongoDB and Redis for session key caching. Yaml files are provided to deploy everything to a cluster. A docker file is also provided if you'd prefer to build a local image, however the file `k8s_yamls/backend.yaml` provides a public image readily available if you check the template image field.
 
 ##  How to Run locally
 - You will first need a couple env variables set. 
