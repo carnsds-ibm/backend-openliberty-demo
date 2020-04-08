@@ -60,7 +60,6 @@ public class DBManager {
             final BasicDBObject command = new BasicDBObject("createUser", userName).append("pwd", password).append("roles",
                 Collections.singletonList(new BasicDBObject("role", "readWrite").append("db", DBManager.DATABASENAME)));
             
-                System.out.println(command.toJson());
             if (DATABASE.runCommand(command).getDouble("ok").intValue() == 1) {
                 return loginNewUser(userName, password);
             }
