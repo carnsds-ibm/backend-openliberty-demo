@@ -1,0 +1,67 @@
+apiVersion: "config.istio.io/v1alpha2"
+kind: metric
+metadata:
+  name: requestcount-fe
+  namespace: thevoid
+spec:
+  value: "1"
+  dimensions:
+    source: source.service | "unknown"
+    destination: destination.service | "unknown"
+    version: destination.labels["version"] | "unknown"
+    user_agent: request.headers["user-agent"] | "unknown"
+  monitored_resource_type: '"UNSPECIFIED"'
+---
+apiVersion: "config.istio.io/v1alpha2"
+kind: metric
+metadata:
+  name: requestcount-be
+  namespace: thevoid
+spec:
+  value: "1"
+  dimensions:
+    source: source.service | "unknown"
+    destination: destination.service | "unknown"
+    version: destination.labels["version"] | "unknown"
+    user_agent: request.headers["user-agent"] | "unknown"
+  monitored_resource_type: '"UNSPECIFIED"'
+---
+apiVersion: "config.istio.io/v1alpha2"
+kind: prometheus
+metadata:
+  name: recommendationrequestcounthandler
+  namespace: istio-system
+spec:
+  metrics:
+  - name: recommendation_request_count
+    instance_name: recommendationrequestcount.metric.istio-system
+    kind: COUNTER
+    label_names:
+    - source
+    - destination
+    - user_agent
+    - version
+---
+apiVersion: "config.istio.io/v1alpha2"
+kind: rule
+metadata:
+  name: recommendationrequestcountprom
+  namespace: istio-system
+spec:
+  match: destination.service == "frontend-service.thevoid.svc.cluster.local"
+  actions:
+  - handler: recommendationrequestcounthandler.prometheus
+    instances:
+    - requestcount-fe.metric
+---
+apiVersion: "config.istio.io/v1alpha2"
+kind: rule
+metadata:
+  name: recommendationrequestcount-backend
+  namespace: istio-system
+spec:
+  match: destination.service == "backend-service.thevoid.svc.cluster.local"
+  actions:
+  - handler: recommendationrequestcounthandler.prometheus
+    instances:
+    - requestcount-be.metric

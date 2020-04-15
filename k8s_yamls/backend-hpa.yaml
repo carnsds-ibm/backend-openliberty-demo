@@ -1,0 +1,36 @@
+apiVersion: autoscaling/v2beta1
+kind: HorizontalPodAutoscaler
+metadata:
+  name: backend-hpa
+  namespace: thevoid
+  annotations:
+    metric-config.object.istio-requests-total.prometheus/per-replica: "true"
+    metric-config.object.istio-requests-total.prometheus/query: |
+      sum(
+        rate(
+          istio_requests_total{
+            destination_service="backend-service.thevoid.svc.cluster.local"
+          }[1m]
+        )
+      ) /
+      count(
+        count(
+          container_memory_usage_bytes{
+            namespace="thevoid",
+            pod_name=~"backend.*"
+          }
+        ) by (pod_name)
+      )
+spec:
+  maxReplicas: 10
+  minReplicas: 1
+  scaleTargetRef:
+    apiVersion: extensions/v1beta1
+    kind: Deployment
+    name: backend-deploy
+  targetCPUUtilizationPercentage: 10
+  metrics:
+  - type: Resource
+    resource:
+      name: cpu
+      targetAverageUtilization: 10

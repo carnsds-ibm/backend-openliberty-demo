@@ -3,13 +3,15 @@ kind: Deployment
 metadata:
   labels:
     app: backend-deploy
-  name: backend-deploy
+    version: v2
+  name: backend-deploy-canary
   namespace: thevoid
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: backend-deploy
+      version: v2
   strategy: {}
   template:
     metadata:
@@ -18,9 +20,10 @@ spec:
       labels:
         app: backend-deploy
         tier: backend
+        version: v2
     spec:
       containers:
-      - image: dennismila/backend-void:1.0
+      - image: dennismila/backend-void:1.1
         name: void-backend
         ports:
         - containerPort: 9080
