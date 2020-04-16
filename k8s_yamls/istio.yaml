@@ -17,7 +17,7 @@ spec:
 apiVersion: networking.istio.io/v1alpha3
 kind: VirtualService
 metadata:
-  name: thevoid-vs
+  name: thevoid-fox
   namespace: thevoid
 spec:
   hosts:
@@ -26,21 +26,33 @@ spec:
   - thevoid-gateway
   http:
   - match:
+    - headers:
+        user-agent:
+          regex: '.*Firefox.*'
     - uri:
         prefix: /static
     - uri:
         prefix: /sockjs-node
     - uri:
         exact: /
-    - headers:
-        user-agent:
-          regex: '.*Firefox.*'
     route:
     - destination:
         host: frontend-service
         subset: v2
         port:
           number: 80
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: thevoid-vs
+  namespace: thevoid
+spec:
+  hosts:
+  - "*"
+  gateways:
+  - thevoid-gateway
+  http:
   - match:
     - uri:
         prefix: /static
