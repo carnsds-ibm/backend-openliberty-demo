@@ -3,8 +3,8 @@ kind: Deployment
 metadata:
   labels:
     app: frontend-deploy
-    version: v1
-  name: frontend-deploy
+    version: v2
+  name: frontend-deploy-canary
   namespace: thevoid
 spec:
   progressDeadlineSeconds: 600
@@ -13,7 +13,7 @@ spec:
   selector:
     matchLabels:
       app: frontend-deploy
-      version: v1
+      version: v2
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -25,7 +25,7 @@ spec:
         sidecar.istio.io/inject: "true"
       labels:
         app: frontend-deploy
-        version: v1
+        version: v2
     spec:
       containers:
       - env:
