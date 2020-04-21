@@ -18,6 +18,8 @@ spec:
         app: redis-deploy
         tier: backend
     spec:
+      serviceAccount: general
+      serviceAccountName: general
       containers:
       - image: redis:alpine
         name: redis

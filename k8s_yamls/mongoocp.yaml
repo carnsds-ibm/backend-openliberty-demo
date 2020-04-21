@@ -1,0 +1,69 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  name: mongo-deploy
+  namespace: thevoid
+  labels:
+    app: mongo-deploy
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ConfigChange
+  replicas: 1
+  selector:
+    app: mongo-deploy
+    version: v1
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      labels:
+        app: mongo-deploy
+        tier: backend
+        version: v1
+    spec:
+      containers:
+        - image: mongo:3.6.17
+          name: mongo
+          env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: void-secret
+                key: DB_ADMINUSER
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: void-secret
+                key: DB_ADMINPWD
+          args: [ "--auth" ]
+          ports:
+          - containerPort: 27017
+          volumeMounts:
+          - name: data
+            mountPath: /data/db
+      volumes:
+        - name: data
+          emptyDir: {}
+          securityContext:
+            capabilities:
+            privileged: true
+            readOnlyRootFilesystem: false
+            allowPrivilegeEscalation: true
+          imagePullPolicy: Always
+          terminationMessagePolicy: File
+          image: carnsds/frontend-void:1.2
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      serviceAccountName: general
+      serviceAccount: general

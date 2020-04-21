@@ -34,11 +34,11 @@ spec:
             configMapKeyRef:
               key: BACKEND_URL
               name: void-config
-        image: carnsds/frontend-void:1.0
+        image: carnsds/frontend-void:1.1
         imagePullPolicy: IfNotPresent
         name: void-frontend
         ports:
-        - containerPort: 3000
+        - containerPort: 80
           protocol: TCP
         resources:
           requests:

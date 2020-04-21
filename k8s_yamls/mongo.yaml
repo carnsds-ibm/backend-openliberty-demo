@@ -10,7 +10,6 @@ spec:
   selector:
     matchLabels:
       app: mongo-deploy
-  strategy: {}
   template:
     metadata:
       annotations:
@@ -39,8 +38,6 @@ spec:
         volumeMounts:
         - name: data
           mountPath: /data/db
-        resources: {}
       volumes:
       - name: data
         emptyDir: {}
-status: {}

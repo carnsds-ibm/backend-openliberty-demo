@@ -5,7 +5,7 @@ metadata:
     app: frontend-deploy
     version: v1
   name: frontend-deploy
-  namespace: thevoid
+  namespace: thevoid-test
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -27,6 +27,8 @@ spec:
         app: frontend-deploy
         version: v1
     spec:
+      serviceAccountName: nginx 
+      serviceAccount: nginx
       containers:
       - env:
         - name: BACKEND_URL
@@ -34,11 +36,11 @@ spec:
             configMapKeyRef:
               key: BACKEND_URL
               name: void-config
-        image: carnsds/frontend-void:1.0
+        image: carnsds/frontend-void:1.2
         imagePullPolicy: IfNotPresent
         name: void-frontend
         ports:
-        - containerPort: 3000
+        - containerPort: 80
           protocol: TCP
         resources:
           requests:
