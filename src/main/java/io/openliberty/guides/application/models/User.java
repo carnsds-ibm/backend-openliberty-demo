@@ -9,6 +9,9 @@ public class User {
     private boolean check;
 
     public String getUserName() {
+        if (userName == null) {
+            userName = "";
+        }
         return userName.trim();
     }
 

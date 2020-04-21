@@ -25,6 +25,7 @@ public class UserManager {
     public static final Base64.Decoder DECODER = Base64.getDecoder();
     public static final int MINIMUMCHARS = 8;
     public static final int FOURHOURSINMILLIS = 14400000;
+    public static final int DAYINSECS = 86400;
 
     public static boolean checkUsernameExists(String userName) {
         Document result = findUser(userName);
@@ -62,6 +63,7 @@ public class UserManager {
     public static void insertCache(String userName, String hash, String pass) {
         try {
             JEDIS.set(hash, Serializer.toString(new CacheObject(userName, pass)));
+            JEDIS.expire(hash, DAYINSECS);
         } catch (IOException e) {
             System.out.println("Could not serialize username: " + userName + " " + e);
         }
@@ -72,12 +74,10 @@ public class UserManager {
         if (cookie == null) {
             if (key == null || key.equals("")) {
                 return null;
-            } else {
-                return key;
-            }
-        } else {
-            return cookie.getValue();
-        }
+            } 
+            return key;
+        } 
+        return cookie.getValue();
     }
 
     public static class CacheObject implements Serializable {

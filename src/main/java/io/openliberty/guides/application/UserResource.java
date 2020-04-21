@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 import com.mongodb.client.MongoClient;
 
 import org.bson.Document;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 
 import io.openliberty.guides.application.client.UnknownUriException;
@@ -35,6 +36,7 @@ public class UserResource {
     @POST
     @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
+    @Traced(value = true, operationName = "Getting Users")
     public Response getAllUsers(@CookieParam(COOKIEOFTHEGODS) Cookie cookie, User user)  throws UnknownUriException {
         String key = checkCache(cookie, user.getKey());
 

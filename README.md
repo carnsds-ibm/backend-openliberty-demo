@@ -11,7 +11,7 @@ Thanks for checking out the repo, this was a rough draft project trying to play 
   - DB_ADMINUSER="\<you choose admin username for db>"
   - DB_ADMINPWD="\<you choose admin password for db>"
  - Set up your Mongo Service
-   - Run `docker run -p $DB_PORT:27017 -d -e MONGO_INITDB_ROOT_USERNAME=$DB_ADMINUSER -e MONGO_INITDB_ROOT_PASSWORD=DB_ADMINPWD mongo:3.6.7 --auth`
+   - Run `docker run -p $DB_PORT:27017 -d -e MONGO_INITDB_ROOT_USERNAME=$DB_ADMINUSER -e MONGO_INITDB_ROOT_PASSWORD=$DB_ADMINPWD mongo:3.6.7 --auth`
   - Next, setup redis service
     - `docker run -p $R_PORT:6379 -d redis:alpine`
    - Then start your backend, in root folder of project, please run:

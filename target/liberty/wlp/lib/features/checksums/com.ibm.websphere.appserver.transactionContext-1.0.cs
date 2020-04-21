@@ -1,3 +1,3 @@
-#Tue Mar 31 15:47:59 EDT 2020
-lib/features/com.ibm.websphere.appserver.transactionContext-1.0.mf=be8e08178691845ff90cd730d46e9339
-lib/com.ibm.ws.transaction.context_1.0.38.jar=94f5d6115722639cb3f2c7c833ef8b17
+#Tue Apr 21 11:19:59 EDT 2020
+lib/com.ibm.ws.transaction.context_1.0.39.jar=db58955d69d8017a71c3a3f242c02301
+lib/features/com.ibm.websphere.appserver.transactionContext-1.0.mf=26765503ea52700adf164b709a36fe7e
