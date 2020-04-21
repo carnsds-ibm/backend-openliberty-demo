@@ -1,0 +1,13 @@
+io/openliberty/guides/system/SystemApplication.class
+io/openliberty/guides/application/client/UnknownUriExceptionMapper.class
+io/openliberty/guides/application/util/Serializer.class
+io/openliberty/guides/application/util/CorsFilter.class
+io/openliberty/guides/application/WebResource.class
+io/openliberty/guides/system/SystemResource.class
+io/openliberty/guides/application/util/UserManager.class
+io/openliberty/guides/application/models/Article.class
+io/openliberty/guides/application/util/HelpTools.class
+io/openliberty/guides/application/models/User.class
+io/openliberty/guides/application/util/DBManager.class
+io/openliberty/guides/application/client/UnknownUriException.class
+io/openliberty/guides/application/util/UserManager$CacheObject.class

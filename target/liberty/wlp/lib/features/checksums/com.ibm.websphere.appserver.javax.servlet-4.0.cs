@@ -1,3 +1,3 @@
-#Tue Mar 31 15:47:56 EDT 2020
-lib/features/com.ibm.websphere.appserver.javax.servlet-4.0.mf=711da6fa7fd271a7397b2e2aa5d28306
-dev/api/spec/com.ibm.websphere.javaee.servlet.4.0_1.0.38.jar=230e3e1778b274eb5cd8ef04e39edb21
+#Tue Apr 21 11:19:56 EDT 2020
+lib/features/com.ibm.websphere.appserver.javax.servlet-4.0.mf=1025a8a8da7b8762b8ca38143a9b9d8e
+dev/api/spec/com.ibm.websphere.javaee.servlet.4.0_1.0.39.jar=d1252ee232cc526caf633a7b1b43f831

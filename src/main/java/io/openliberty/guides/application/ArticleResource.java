@@ -13,6 +13,7 @@ import javax.ws.rs.core.Response;
 import com.mongodb.client.MongoClient;
 
 import org.bson.Document;
+import org.eclipse.microprofile.opentracing.Traced;
 import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 
 import io.openliberty.guides.application.client.UnknownUriException;
@@ -120,6 +121,7 @@ public class ArticleResource {
     @POST
     @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
+    @Traced(value = true, operationName = "Getting Articles")
     public Response getAllArticle(@CookieParam(UserManager.COOKIEOFTHEGODS) Cookie cookie, Article article) throws UnknownUriException {
         String key = UserManager.checkCache(cookie, article.getKey());
 

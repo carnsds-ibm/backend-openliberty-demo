@@ -7,12 +7,15 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.eclipse.microprofile.opentracing.Traced;
+
 @RequestScoped
 @Path("")
 public class WebResource {
 
   @GET
   @Produces(MediaType.TEXT_HTML)
+  @Traced(value = true, operationName = "Getting Calculator")
   public Response getCalculator() {
     
     return Response.status(Response.Status.OK)
