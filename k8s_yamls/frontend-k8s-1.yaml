@@ -34,7 +34,7 @@ spec:
             configMapKeyRef:
               key: BACKEND_URL
               name: void-config
-        image: carnsds/frontend-void:1.2
+        image: carnsds/frontend-void:1.3
         imagePullPolicy: IfNotPresent
         name: void-frontend
         ports:
