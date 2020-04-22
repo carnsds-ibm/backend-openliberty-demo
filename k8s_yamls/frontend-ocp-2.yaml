@@ -1,10 +1,11 @@
 kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
-  name: frontend-deploy
+  name: frontend-deploy-canary
   namespace: thevoid
   labels:
     app: frontend-deploy
+    version: v2
 spec:
   strategy:
     type: Rolling
@@ -21,14 +22,14 @@ spec:
   replicas: 1
   selector:
     app: frontend-deploy
-    version: v1
+    version: v2
   template:
     metadata:
       annotations:
         sidecar.istio.io/inject: "true"
       labels:
         app: frontend-deploy
-        version: v1
+        version: v2
     spec:
       containers:
         - name: void-frontend
@@ -51,9 +52,9 @@ spec:
             allowPrivilegeEscalation: true
           imagePullPolicy: Always
           terminationMessagePolicy: File
-          image: carnsds/frontend-void:1.2
+          image: carnsds/frontend-void:1.3
       restartPolicy: Always
       terminationGracePeriodSeconds: 30
       dnsPolicy: ClusterFirst
-      serviceAccountName: nginx
-      serviceAccount: nginx
+      serviceAccountName: general
+      serviceAccount: general

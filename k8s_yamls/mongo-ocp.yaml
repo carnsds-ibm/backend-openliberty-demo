@@ -5,6 +5,7 @@ metadata:
   namespace: thevoid
   labels:
     app: mongo-deploy
+    version: v1
 spec:
   strategy:
     type: Rolling
@@ -59,11 +60,5 @@ spec:
             privileged: true
             readOnlyRootFilesystem: false
             allowPrivilegeEscalation: true
-          imagePullPolicy: Always
-          terminationMessagePolicy: File
-          image: carnsds/frontend-void:1.2
-      restartPolicy: Always
-      terminationGracePeriodSeconds: 30
-      dnsPolicy: ClusterFirst
       serviceAccountName: general
       serviceAccount: general

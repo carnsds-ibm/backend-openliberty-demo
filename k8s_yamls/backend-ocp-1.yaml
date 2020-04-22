@@ -1,0 +1,77 @@
+kind: DeploymentConfig
+apiVersion: apps.openshift.io/v1
+metadata:
+  name: backend-deploy
+  namespace: thevoid
+  labels:
+    app: backend-deploy
+    version: v1
+spec:
+  strategy:
+    type: Rolling
+    rollingParams:
+      updatePeriodSeconds: 1
+      intervalSeconds: 1
+      timeoutSeconds: 600
+      maxUnavailable: 25%
+      maxSurge: 25%
+    resources: {}
+    activeDeadlineSeconds: 21600
+  triggers:
+    - type: ConfigChange
+  replicas: 1
+  selector:
+    app: backend-deploy
+    version: v1
+  template:
+    metadata:
+      annotations:
+        sidecar.istio.io/inject: "true"
+      creationTimestamp: null
+      labels:
+        app: backend-deploy
+        version: v1
+        tier: backend
+    spec:
+      containers:
+      - env:
+        - name: DB_ADMINUSER
+          valueFrom:
+            secretKeyRef:
+              key: DB_ADMINUSER
+              name: void-secret
+        - name: DB_ADMINPWD
+          valueFrom:
+            secretKeyRef:
+              key: DB_ADMINPWD
+              name: void-secret
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: DB_HOST
+              name: void-config
+        - name: DB_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: DB_PORT
+              name: void-config
+        - name: R_HOST
+          valueFrom:
+            configMapKeyRef:
+              key: R_HOST
+              name: void-config
+        - name: R_PORT
+          valueFrom:
+            configMapKeyRef:
+              key: R_PORT
+              name: void-config
+        image: dennismila/backend-void:1.2
+        imagePullPolicy: IfNotPresent
+        name: void-backend
+        ports:
+        - containerPort: 9080
+        resources:
+          requests:
+             cpu: 200m
+      serviceAccountName: general
+      serviceAccount: general

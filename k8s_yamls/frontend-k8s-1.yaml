@@ -27,8 +27,6 @@ spec:
         app: frontend-deploy
         version: v1
     spec:
-      serviceAccountName: nginx 
-      serviceAccount: nginx
       containers:
       - env:
         - name: BACKEND_URL

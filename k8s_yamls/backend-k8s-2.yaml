@@ -23,7 +23,7 @@ spec:
         version: v2
     spec:
       containers:
-      - image: dennismila/backend-void:1.1
+      - image: dennismila/backend-void:1.2
         name: void-backend
         ports:
         - containerPort: 9080
