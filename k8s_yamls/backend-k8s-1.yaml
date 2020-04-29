@@ -5,7 +5,6 @@ metadata:
     app: backend-deploy
     version: v1
   name: backend-deploy
-  namespace: thevoid
 spec:
   replicas: 1
   selector:

@@ -5,7 +5,6 @@ metadata:
   labels:
     app: backend-deploy
   name: backend-service
-  namespace: thevoid
 spec:
   ports:
   - port: 80

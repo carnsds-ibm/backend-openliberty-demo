@@ -2,7 +2,6 @@ kind: DeploymentConfig
 apiVersion: apps.openshift.io/v1
 metadata:
   name: backend-deploy
-  namespace: thevoid
   labels:
     app: backend-deploy
     version: v1

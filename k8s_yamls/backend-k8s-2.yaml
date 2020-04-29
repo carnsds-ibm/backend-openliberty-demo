@@ -5,7 +5,6 @@ metadata:
     app: backend-deploy
     version: v2
   name: backend-deploy-canary
-  namespace: thevoid
 spec:
   replicas: 1
   selector:
